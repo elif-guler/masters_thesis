@@ -65,12 +65,12 @@ To test for statistical significance:
 
 #+NAME: tab:mge_permutation_results
 #+CAPTION: Empirical MGE overlap permutation test results (N = 10,000 permutations).
-| Clade | Mapped Markers | Observed Overlaps | Permutation Mean | Shuffles $\ge$ Observed | Empirical $p$-value | Significance ($p < 0.05$) |
-|-------+----------------+-------------------+------------------+-----------------------+---------------------+----------------------------|
-| B2    |             16 |                 0 |             1.88 |                 10000 |              1.0000 | Not Significant            |
-| D     |             12 |                 2 |             1.12 |                  2060 |              0.2061 | Not Significant            |
-| E     |              8 |                 0 |             1.82 |                 10000 |              1.0000 | Not Significant            |
-| F     |             12 |                 2 |             1.14 |                  2007 |              0.2008 | Not Significant            |
+| Clade | Mapped Markers | Observed Overlaps | Permutation Mean | Shuffles $\ge$ Observed | Empirical $p$-value | 
+|-------+----------------+-------------------+------------------+-----------------------+---------------------|
+| B2    |             16 |                 0 |             1.88 |                 10000 |              1.0000 |
+| D     |             12 |                 2 |             1.12 |                  2060 |              0.2061 |
+| E     |              8 |                 0 |             1.82 |                 10000 |              1.0000 |
+| F     |             12 |                 2 |             1.14 |                  2007 |              0.2008 |
 
 ** Permutation Null Distributions
 
