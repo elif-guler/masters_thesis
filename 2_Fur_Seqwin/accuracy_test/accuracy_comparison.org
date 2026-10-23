@@ -1,0 +1,32 @@
+*** Accuracy Comparison of Fur and Seqwin
+
+I checked the accuracy difference between two both with different lenghts of the markers
+and length of the sequence: 100000:
+
+#+begin_src bash
+  bash driver.sh 100000 seqwin
+  bash driver.sh 100000 fur
+  bash summarize.sh seqwin
+  bash summarize.sh fur
+#+end_src
+
+
+accuracy of fur with different marker lenghts:
+| marker_lenght | accuracy |         std |
+|           200 | 0.957186 |  0.00679441 |
+|           400 | 0.966305 |  0.00289561 |
+|           800 | 0.983795 |   0.0021336 |
+|          1600 |  0.99059 | 0.000934393 |
+|          3200 | 0.995114 | 0.000347968 |
+|          7500 | 0.997541 | 0.000270375 |
+
+accuracy of seqwin with different marker lenghts:
+| marker_lenght |  accuracy |       std |
+|           200 | 0.0703242 | 0.0338231 |
+|           400 |  0.197909 | 0.0636835 |
+|           800 |  0.228225 | 0.0555378 |
+|          1600 |  0.587392 | 0.0533188 |
+|          3200 |  0.584663 | 0.0511619 |
+|          7500 |  0.691544 | 0.0485112 |
+
+
