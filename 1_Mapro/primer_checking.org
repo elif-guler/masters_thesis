@@ -1,0 +1,720 @@
+* Primer checking results
+
+script:
+#+begin_src bash
+  bash ../scripts/driver.sh -n ../data/neidb -c -b <blastDb> < ../data/list.txt
+#+end_src
+
+the analysis ran from Fri Jun 19 04:47 pm
+to Sun Jun 21 06:54 am
+
+there were 74 taxa that have primers to be checked
+
+74 of them generated scop.out
+only 2 of them had cops.out
+
+to find out, i ran the analysis on two taxa that doesnt have cops.out but
+have scop.out:
+- afa
+- afi
+
+the results did not change again. since the id's changed, we needed to update
+list.txt.
+
+number of strains decreased to 99 from 120. also, we are not sure if we
+captured the same strain information since for some taxa database gave
+approximation results
+
+* Analysis of strains and their parents
+
+* TaxID and Parent TaxID Analysis
+
+for each strain in the newlist.txt, the corresponding taxid
+was retrieved using the taxi. the parent taxid is then obtained from the
+taxon table in neidb. the number of genomes associated with both the strain
+and its parent was determined using the supplied sql query.
+
+#+begin_src bash
+  echo -e "strain\ttaxid\tnumber_of_taxid\tparent_taxid\tnumber_of_parent_taxid"
+
+while read line
+do
+    code=$(echo "$line" | cut -f1)
+
+    strain_name=$(echo "$line" | cut -f3)
+
+    taxid=$(taxi -e "$strain_name" neidb | tail -n 1 | awk '{print $1}')
+
+    parent=$(sqlite3 neidb "select parent from taxon where taxid=$taxid")
+
+    n_tax=$(sqlite3 neidb "select count(accession) from genome where taxid=$taxid and (level='complete' or level='\
+chromosome')")
+
+    n_parent=$(sqlite3 neidb "select count(accession) from genome where taxid=$parent and (level='complete' or lev\
+el='chromosome')")
+
+    echo -e "$code\t$taxid\t$n_tax\t$parent\t$n_parent"
+
+done < newlist.txt
+#+end_src
+
+| strain |   taxid | number_of_taxid | parent_taxid | number_of_parent_taxid |
+| afi    |  312309 |               1 |          668 |                     10 |
+| ahy    |  380703 |               1 |       196023 |                      2 |
+| ame    |  749927 |               1 |        33910 |                      1 |
+| api    |  871585 |               1 |        48296 |                     94 |
+| ban1   |  198094 |               1 |         1392 |                    146 |
+| ban2   |  260799 |               2 |         1392 |                    146 |
+| bap    |  107806 |               2 |       118099 |                      0 |
+| bbi    |  702459 |               1 |         1681 |                     19 |
+| bbr    |  568707 |               1 |          518 |                     35 |
+| bbu    |  224326 |               1 |          139 |                    104 |
+| bce    |  226900 |               3 |         1396 |                    245 |
+| bdi    |  224911 |               2 |      1355477 |                    118 |
+| bfr    |  295405 |               1 |          817 |                    128 |
+| blo    |  206672 |               1 |       216816 |                     73 |
+| bma    |  243160 |               1 |        13373 |                     35 |
+| bpa    | 1208660 |               1 |          519 |                     90 |
+| bpe    |  257313 |               3 |          520 |                   1196 |
+| bps    |  272560 |               2 |        28450 |                    178 |
+| bsu    |  224308 |              11 |       135461 |                    104 |
+| bth1   |  226186 |               1 |          818 |                     43 |
+| bth2   |  281309 |               1 |       180856 |                      0 |
+| cbo1   |  413999 |               1 |        36826 |                      1 |
+| cbo2   |  441771 |               1 |        36826 |                      1 |
+| cbu    |  227377 |               1 |          777 |                     71 |
+| cdi    |  272563 |               3 |         1496 |                    321 |
+| cgl    |  196627 |               2 |         1718 |                     31 |
+| cje    |  192222 |               1 |        32022 |                     45 |
+| cpn    |  115713 |               1 |        83558 |                     10 |
+| ctr1   |  272561 |               1 |          813 |                    235 |
+| ctr2   |  471472 |               1 |          813 |                    235 |
+| cvi1   |  190650 |               1 |       155892 |                      7 |
+| cvi2   |  565050 |               1 |       155892 |                      7 |
+| ecl    |  716541 |               1 |       336306 |                      6 |
+| eco1   |  386585 |               1 |        83334 |                    164 |
+| eco2   |  685038 |               1 |       685037 |                      0 |
+| eco3   | 1133852 |               1 |      1038927 |                      6 |
+| eco4   |  585056 |               1 |          562 |                   8084 |
+| eco5   |  585057 |               1 |          562 |                   8084 |
+| eco6   |  511145 |              30 |        83333 |                     24 |
+| efa1   |  226185 |               1 |         1351 |                    796 |
+| efa2   |  333849 |               1 |         1352 |                   1003 |
+| fnu    |  190304 |               6 |        76856 |                      4 |
+| fps    |  402612 |               1 |        96345 |                    107 |
+| ftu    |  177416 |               2 |       119856 |                      4 |
+| gsu    |  243231 |               1 |        35554 |                      5 |
+| gva    |  525284 |               1 |         2702 |                     21 |
+| hin    |   71421 |               1 |          727 |                    406 |
+| hpy    |   85962 |               2 |          210 |                   1430 |
+| kae    | 1028307 |               1 |          548 |                    137 |
+| kpn    | 1125630 |               1 |        72407 |                    225 |
+| kvu    |  759362 |               1 |        92945 |                      4 |
+| lac    |  272621 |               1 |         1579 |                     32 |
+| lin    |  189518 |               1 |        57678 |                      0 |
+| lla    |  272623 |               1 |         1360 |                     52 |
+| lmo    |  169963 |               3 |         1639 |                    776 |
+| lpn    |  272624 |               1 |        91891 |                     20 |
+| mab    |  561007 |               1 |        36809 |                     72 |
+| mci    |  765698 |               1 |       278148 |                      1 |
+| mle    |  272631 |               1 |         1769 |                      1 |
+| mmy    |  272632 |               1 |        44101 |                      0 |
+| msm    |  246196 |               3 |         1772 |                     16 |
+| mtu1   |   83332 |               2 |         1773 |                    673 |
+| mtu2   |  233413 |               1 |         1765 |                     32 |
+| ngo    |  242231 |               2 |          485 |                    327 |
+| nme    |  122586 |               1 |          491 |                      0 |
+| pae    |  208964 |               7 |          287 |                   1827 |
+| ppu    |  160488 |              12 |          303 |                    114 |
+| psy1   |  223283 |               1 |          323 |                      6 |
+| psy2   |  205918 |               1 |          321 |                     12 |
+| rpr    |  272947 |               1 |          782 |                      1 |
+| rru    |  269796 |               1 |         1085 |                      1 |
+| sag    |  208435 |               1 |       216466 |                      0 |
+| sau    |   93061 |               2 |         1280 |                   4054 |
+| sco    |  100226 |               2 |         1902 |                      6 |
+| sdy    |  300267 |               1 |          622 |                     41 |
+| sen1   |   99287 |               1 |        90371 |                    307 |
+| sen2   |  220341 |               1 |        90370 |                    174 |
+| sep    |  176280 |               1 |         1282 |                    371 |
+| sfl    |  198214 |               1 |        42897 |                      5 |
+| sfr    |     394 |               1 |          380 |                      3 |
+| sme1   |  266834 |               1 |          382 |                     67 |
+| sme2   |  366394 |               1 |       110321 |                     11 |
+| smi    |  365659 |               1 |        28037 |                     19 |
+| smu    |  210007 |               1 |         1309 |                     34 |
+| son1   |  211586 |               2 |        70863 |                      0 |
+| spn2   |  171101 |               1 |         1313 |                    337 |
+| spy    |  160490 |               2 |       301447 |                      0 |
+| sru    |  309807 |               1 |       146919 |                      8 |
+| ssa    |  388919 |               1 |         1305 |                     46 |
+| ssu    |  568814 |               1 |         1307 |                    185 |
+| tde    |  243275 |               1 |          158 |                     27 |
+| tma    |  243274 |               4 |         2336 |                      3 |
+| tth    |  300852 |               1 |          274 |                     33 |
+| tye    |  289376 |               1 |        28262 |                      0 |
+| vch    |  243277 |               2 |          686 |                      8 |
+| vpa    |  223926 |               1 |          670 |                    257 |
+| xca    |  190485 |               1 |          340 |                    125 |
+| yen    |  393305 |               1 |       150052 |                      3 |
+| ype    |  214092 |               2 |          632 |                    225 |
+
+
+from the table I constructed, I can check which taxa can be good candidates to answer this
+question: is moving from the target strain to the parent (to be used in neighbors tool) meaningful?
+
+#+begin_src bash
+  echo -e "strain\tparent_id\tparent_rank"
+
+  while read line
+  do
+      code=$(echo "$line" | cut -f1)
+      strain=$(echo "$line" | cut -f3)
+
+      pid=$(taxi "$strain" neidb |
+                tail -n 1 |
+                awk '{print $2}')
+
+      prank=$(ants $pid neidb |
+                  tail -n 1 |
+                  awk '{print $NF}')
+
+      echo -e "$code\t$pid\t$prank"
+
+  done < newlist.txt
+
+#+end_src
+
+| strain | parent_id | parent_rank |
+| afi    |       668 | species     |
+| ahy    |    196023 | subspecies  |
+| ame    |     33910 | species     |
+| api    |     48296 | species     |
+| ban1   |      1392 | species     |
+| ban2   |      1392 | species     |
+| bap    |    118099 | specialis   |
+| bbi    |      1681 | species     |
+| bbr    |       518 | species     |
+| bbu    |       139 | species     |
+| bce    |      1396 | species     |
+| bdi    |   1355477 | species     |
+| bfr    |       817 | species     |
+| blo    |    216816 | species     |
+| bma    |     13373 | species     |
+| bpa    |       519 | species     |
+| bpe    |       520 | species     |
+| bps    |     28450 | species     |
+| bsu    |    135461 | subspecies  |
+| bth1   |       818 | species     |
+| bth2   |    180856 | rank        |
+| cbo1   |     36826 | rank        |
+| cbo2   |     36826 | rank        |
+| cbu    |       777 | species     |
+| cdi    |      1496 | species     |
+| cgl    |      1718 | species     |
+| cje    |     32022 | subspecies  |
+| cpn    |     83558 | species     |
+| ctr1   |       813 | species     |
+| ctr2   |    471472 | strain      |
+| cvi1   |    155892 | species     |
+| cvi2   |    155892 | species     |
+| ecl    |    336306 | subspecies  |
+| eco1   |     83334 | rank        |
+| eco2   |    685037 | rank        |
+| eco3   |   1038927 | rank        |
+| eco4   |       562 | species     |
+| eco5   |       562 | species     |
+| eco6   |     83333 | strain      |
+| efa1   |      1351 | species     |
+| efa2   |      1352 | species     |
+| fnu    |     76856 | subspecies  |
+| fps    |     96345 | species     |
+| ftu    |    177416 | strain      |
+| gsu    |     35554 | species     |
+| gva    |      2702 | species     |
+| hin    |       727 | species     |
+| hpy    |       210 | species     |
+| kae    |       548 | species     |
+| kpn    |     72407 | subspecies  |
+| kvu    |     92945 | species     |
+| lac    |      1579 | species     |
+| lin    |     57678 | rank        |
+| lla    |      1360 | subspecies  |
+| lmo    |      1639 | species     |
+| lpn    |     91891 | subspecies  |
+| mab    |     36809 | species     |
+| mci    |    278148 | rank        |
+| mle    |      1769 | species     |
+| mmy    |     44101 | strain      |
+| msm    |      1772 | species     |
+| mtu1   |      1773 | species     |
+| mtu2   |      1765 | biotype     |
+| ngo    |       485 | species     |
+| nme    |       491 | serogroup   |
+| pae    |    208964 | strain      |
+| ppu    |       303 | species     |
+| psy1   |       323 | rank        |
+| psy2   |       321 | rank        |
+| rpr    |       782 | species     |
+| rru    |      1085 | species     |
+| sag    |    216466 | serogroup   |
+| sau    |      1280 | species     |
+| sco    |      1902 | species     |
+| sdy    |       622 | species     |
+| sen1   |    488338 | rank        |
+| sen2   |     90370 | rank        |
+| sep    |      1282 | species     |
+| sfl    |     42897 | serotype    |
+| sfr    |       380 | species     |
+| sme1   |       382 | species     |
+| sme2   |    110321 | species     |
+| smi    |     28037 | species     |
+| smu    |      1309 | species     |
+| son1   |     70863 | species     |
+| spn2   |      1313 | species     |
+| spy    |    301447 | serotype    |
+| sru    |    146919 | species     |
+| ssa    |      1305 | species     |
+| ssu    |      1307 | species     |
+| tde    |       158 | species     |
+| tma    |      2336 | species     |
+| tth    |       274 | species     |
+| tye    |     28262 | species     |
+| vch    |       686 | rank        |
+| vpa    |       670 | species     |
+| xca    |       340 | rank        |
+| yen    |    150052 | subspecies  |
+| ype    |       632 | species     |
+
+after I got these results, i checked two different taxa to see if there is a big difference between
+old version and new version generated by different genomes.sh
+
+
+in the previous genomes.sh, the relevant part is as follows:
+
+#+begin_src bash
+  mkdir $dir
+  cd $dir
+  db="../$db"
+  tid=$(taxi "$strain" $db |
+            tail -n +2 |
+            awk '{print $2}')
+  echo $tid |
+      neighbors -l $db > acc.txt
+  for a in t n; do
+      grep ^${a} acc.txt |
+          awk '{print $2}' > ${a}acc.txt
+  done
+#+end_src
+
+now we changed it to:
+
+#+begin_src bash
+  mkdir $dir
+  cd $dir
+  db="../$db"
+  pid=$(taxi "$strain" $db |
+            tail -n +2 |
+            awk '{print $2}')
+  target=$pid
+  if [[ "$pr" == "species" ]]; then
+      target=$(taxi "$strain" $db |
+                   tail -n +2 |
+                   awk '{print $1}')
+  fi
+  
+  for a in t n; do
+    grep ^${a} acc.txt |
+          awk '{print $2}' > ${a}acc.txt
+  done
+
+
+#+end_src
+
+
+
+we forgot to add the correct way of writing the code block
+#+begin_src sh <<Get genome accessions, Pr. \ref{pr:gen}>>=
+  pr=$(ants $pid $db |
+           tail -n 1 |
+           awk '{print $NF}')
+#+end_src
+
+and we deleted this one while rewriting the parts
+#+begin_src sh <<Get genome accessions, Pr. \ref{pr:gen}>>=
+  echo $target |
+      neighbors -l $db > acc.txt
+#+end_src
+
+
+
+** afi old results
+
+15 neighbors
+13 targets
+
+primers generated:
+#+begin_src bash
+  >f penalty: 0.039887
+  TACTTGGTGTAACTGGTGGT
+  >r
+  CCATTCGCAGTTGAAAATCG
+#+end_src
+
+** afi new results
+
+3 neighbors
+1 target
+
+primers generated:
+#+begin_src
+  >f penalty: 0.000142
+  CAACAACTCGTTCTGGATGT
+  >r
+  ATCCAACGCTAAATGATCCG
+#+end_src
+
+** eco4 old results
+
+180 neighbors
+8536 targets
+
+no primers were generated
+
+** eco4 new results
+
+569 neighbors
+1 target
+
+primers generated:
+#+begin_src bash
+  >f penalty: 0.006176
+  ACTTCACCGATCAGTTTGTG
+  >r
+  ATTGTTCAGCATCAGGGAAC
+#+end_src
+
+
+since the results with the new genomes.sh is better than what we observed in the old results, now
+i will check the previously failed taxa (the ones that do not have primers)
+
+#+begin_src bash
+  for d in */; do
+    [ -f "$d/primers.fasta" ] || echo "$d"
+  done | sort > failedtaxa.txt
+#+end_src
+
+aae/
+api/
+ban1/
+bbr/
+bbu/
+bce/
+bsu/
+ctr2/
+eco1/
+eco3/
+eco4/
+eco5/
+eco6/
+fnu/
+ftu/
+gva/
+hpy/
+kae/
+kpn/
+lla/
+lmo/
+lpa/
+lpl/
+mmy/
+mpn/
+mtu1/
+mtu2/
+pae/
+pma/
+ppu/
+rpr/
+rsp/
+sau/
+sen1/
+sen2/
+sfl/
+sfr/
+sme1/
+smi/
+smu/
+spn2/
+sru/
+ssu/
+tde/
+tel/
+vch/
+
+
+and the ones that their parents is on the species level:
+#+begin_src bash
+while read line
+do
+    code=$(echo "$line" | cut -f1)
+    strain=$(echo "$line" | cut -f3)
+
+    pid=$(taxi "$strain" neidb |
+              tail -n 1 |
+              awk '{print $2}')
+
+    prank=$(ants $pid neidb |
+                tail -n 1 |
+                awk '{print $NF}')
+
+    if [[ "$prank" == "species" ]]; then
+        echo "$code"
+    fi
+done < newlist.txt | sort > species_parent.txt
+#+end_src
+
+
+*** species that failed while generating primers and has their parents as species:
+#+begin_src bash
+  comm -12 failed.txt species_parent.txt
+#+end_src
+
+api
+ban1
+bbr
+bbu
+bce
+eco4
+eco5
+gva
+hpy
+kae
+lmo
+mtu1
+ppu
+rpr
+sau
+sfr
+sme1
+smi
+smu
+spn2
+sru
+ssu
+tde
+
+
+i will run the full analysis on these taxa again
+#+begin_src bash
+  ../scripts/driver.sh -n ../data/neidb < ../data/newlist_failed.txt
+#+end_src
+
+from 23, 12 of them now generated primers.fasta:
+#+begin_src bash
+  find . -name primers.fasta
+#+end_src
+
+bbr
+bbu
+eco4
+eco5
+kae
+lmo
+ppu
+sfr
+smi
+sru
+ssu
+tde
+
+
+#+begin_src bash
+  date
+  ../scripts/driver.sh -n ../data/neidb -c -b /ssd01/Nt/nt < ../data/newlist_failed.txt
+  date
+
+  nohup bash check_primers.sh > check_p.log &
+#+end_src
+
+we still do not get cops.out with the new list. newlist_failed.txt contains 23 strain that i checked.
+(the ones that failed while generating primers in the old version and have species as their
+parents)
+
+
+#+begin_src bash
+  find . -name scop.out -exec sh -c '
+  for f; do
+      echo "$f"
+      grep -E "^(Sensitivity|Specificity):" "$f"
+      echo
+  done
+  ' sh {} +
+#+end_src
+
+I checked if there's any difference between the new and old approach on a strain that has a
+subspecies ranked parent. (ecl)
+the results were the same in terms of its primers generated as expected. scop.out is identical
+as well. I couldnt generate cops.out but it should also be the same.
+
+then i checked newlist_failed.txt. since 12 of them now have primers.fasta in the new version, i
+could also have scop.out files for them
+(again no cops.out is generated. we might still have a problem with the section where cops.out
+is generated in primers.sh. leafLabel stays undefined in the code block.)
+
+
+#+begin_src bash
+./lmo/scop.out
+Sensitivity:	0.00768
+Specificity:	1
+
+./sfr/scop.out
+Sensitivity:	0.0909
+Specificity:	1
+
+./tde/scop.out
+Sensitivity:	0.261
+Specificity:	0.857
+
+./eco4/scop.out
+Sensitivity:	0.0017
+Specificity:	0.27
+
+./sru/scop.out
+Sensitivity:	0.222
+Specificity:	1
+
+./eco5/scop.out
+Sensitivity:	0.00407
+Specificity:	1
+
+./kae/scop.out
+Sensitivity:	0.0471
+Specificity:	1
+
+./ssu/scop.out
+Sensitivity:	0.00617
+Specificity:	0.5
+
+./bbr/scop.out
+Sensitivity:	0.245
+Specificity:	0.117
+
+./ppu/scop.out
+Sensitivity:	0.37
+Specificity:	0.952
+
+./smi/scop.out
+Sensitivity:	0.333
+Specificity:	0.667
+
+./bbu/scop.out
+Sensitivity:	0.184
+Specificity:	1
+#+end_src
+
+sensitivity is low for all of them, and 7 out of 12 have more than 0.9 specifity. since ecl's primers
+didn't change as its parent is not a species, running the analysis again for all the list may not
+give promising results.
+
+
+
+in the primer checking step, for the newly obtained 12 primers from the taxa that failed before, we got
+really low sensitivity scores for all the primers and some of them also have low specificity score.
+
+to obtain correct sensitivity scores, i changed primers.sh such that it will check whether target
+strain's parent is on the species level or not (same logic as we did in genomes.sh):
+#+begin_src bash
+  pid=$(taxi "$strain" $ndb |
+            tail -n +2 |
+            awk '{print $2}')
+
+  pr=$(ants $pid $ndb |
+           tail -n 1 |
+           awk '{print $NF}')
+
+  target=$pid
+
+  if [[ "$pr" == "species" ]]; then
+      target=$(taxi "$strain" $ndb |
+                   tail -n +2 |
+                   awk '{print $1}')
+  fi
+#+end_src
+
+after that i run the script below again:
+#+begin_src bash
+  date
+../scripts/driver.sh -n ../data/neidb -c -b /ssd01/Nt/nt < ../data/newlist_failed.txt
+  date
+#+end_src
+
+** scop and cops
+
+in scop:
+input:
+- one or more primers intended for one reaction mix
+- a set of target taxon ids
+- blast database linked to the ncbi taxonomy
+
+output:
+- sensitivity: Tp/(Tp + Fn)
+- specificity: Tp/(Tp + Fp)
+  
+it basically finds whether the relevant primer actually generate a PCR amplicon in the
+genomes of the target organisms or not. if so, in which genomes does it produce one,
+and does it also generate one in non-target genomes?
+
+here, we assume that the taxonomy is correct for the data we use from blast. but
+there will be cases that it's not. so we use cops in that case
+
+in cops:
+input:
+- the output of scop ( true positives, false positives, false negatives)
+- reference accession taken from blast
+- treshold distance (ex. if its 0.002, we will put the relevant example in the same
+  group with reference genome if the difference is less then 0.2%)
+
+phylonium calculates the distance of the genomes to their reference. by looking at the
+distance results, it decides whether it should stay in the category that scop calculated
+or not.
+
+normally it doesn't check true positives but if we put -p flag it check them as well.
+if the distance is bigger than the treshold that it puts TP to FP category.
+
+in the end it generates the new list and calculates sensitivity and specificity again.
+
+
+
+the full analysis with the new genomes.sh and primers.sh is not finished yet, but we
+can see the pattern from the results obtained for now:
+
+#+begin_src bash
+  ./lmo/scop.out
+Sensitivity:	0.214
+Specificity:	0.75
+
+./eco4/scop.out
+Sensitivity:	1
+Specificity:	0.027
+
+./eco5/scop.out
+Sensitivity:	1
+Specificity:	0.0417
+
+./kae/scop.out
+Sensitivity:	1
+Specificity:	0.25
+
+./bbr/scop.out
+Sensitivity:	0
+Specificity:	0
+
+./bbu/scop.out
+Sensitivity:	0.5
+Specificity:	0.143
+
+#+end_src
+
+this time, their sensitivity is increased but specificity is decreased dramatically.
+maybe next week we can apply the new version on another taxon that already had primers
+before and check if it gives better results with the new version or not.
