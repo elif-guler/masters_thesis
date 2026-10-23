@@ -1,0 +1,2 @@
+SKIPPED (missing fasta): GCA_902362795.1
+SKIPPED (missing fasta): GCA_902363855.1

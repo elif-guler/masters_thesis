@@ -1,0 +1,23 @@
+	Command being timed: "makeFurDb -T 1 -t targets_before -n neighbors_before -o -d before.db"
+	User time (seconds): 27.82
+	System time (seconds): 8.18
+	Percent of CPU this job got: 109%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:32.94
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1183636
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 2627711
+	Voluntary context switches: 175160
+	Involuntary context switches: 261
+	Swaps: 0
+	File system inputs: 9592336
+	File system outputs: 9452712
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
