@@ -1,0 +1,36 @@
+# Temporary workflow files
+5_MGE_Tests/map_6strain/work/
+
+# Downloaded bioinformatics databases
+5_MGE_Tests/map_6strain/dbs/
+
+# Large local sequence databases
+**/blastdb/
+**/before.db/
+**/target.db/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+__pycache__/
+.ipynb_checkpoints/
+
+# Bioinformatics databases and generated indexes
+**/*.nsq
+**/*.nin
+**/*.nhr
+**/*.ndb
+**/*.not
+**/*.ntf
+**/*.nto
+**/*.dmnd
+**/*.hmm
+**/*.h3f
+**/*.h3i
+**/*.h3m
+**/*.h3p
+
+# Workflow cache and temporary directories
+5_MGE_Tests/map_6strain/work/
+5_MGE_Tests/map_6strain/dbs/
