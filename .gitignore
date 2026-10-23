@@ -34,3 +34,8 @@ __pycache__/
 # Workflow cache and temporary directories
 5_MGE_Tests/map_6strain/work/
 5_MGE_Tests/map_6strain/dbs/
+
+# Large FASTA databases in dbs directories
+**/dbs/**/*.fna
+**/dbs/**/*.fna.gz
+.git_old_backup/
