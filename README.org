@@ -1,0 +1,80 @@
+#+TITLE: Comparison of Tools for Discovering Genetic Markers in Bacterial Genomes
+#+AUTHOR: Elif Güler
+#+DATE: 2026
+#+OPTIONS: toc:2
+
+* Overview
+
+This repository contains the analyses and workflows developed for the master's thesis *Comparison of Tools for Discovering Genetic Markers in Bacterial Genomes*.
+
+The project compares computational approaches for discovering genetic markers in bacterial genomes, with attention to marker recovery, computational performance, taxonomic assignment, specificity and sensitivity,
+and possible associations with mobile genetic elements.
+
+* Objectives
+
+- Compare the marker-discovery tools Fur and Seqwin.
+- Evaluate marker recovery using simulated genomes and real bacterial datasets.
+- Investigate how target and neighbouring taxon assignments affect marker discovery.
+- Examine marker conservation and divergence across six *Escherichia coli* phylogroups.
+- Test whether discovered markers are enriched for mobile genetic element (MGE)-associated annotations.
+
+* Repository Structure
+
+#+BEGIN_SRC text
+.
+├── 1_Mapro/
+├── 2_Fur_Seqwin/
+├── 3_Label_Reassignment/
+├── 4_Conservation_Divergence_Analysis/
+├── 5_MGE_Tests/
+└── README.org
+#+END_SRC
+
+The directories group the project workflows and analyses. Individual scripts, inputs, and outputs are located in their respective directories.
+
+* Methods and Analyses
+
+** Fur and Seqwin comparison
+
+Fur uses a strict presence/absence approach to marker discovery, whereas Seqwin uses a minimizer-based graph approach with a graded penalty. Their performance was investigated using simulated genomes and
+real bacterial datasets, considering marker recovery as well as runtime and memory use.
+
+** Mapro pipeline
+
+The Mapro pipeline was used to discover markers and primers across taxa. Analyses considered target and neighbouring labels for *Clostridioides difficile*, *Mycobacterium tuberculosis*, and *Salmonella enterica*.
+Phylogeny-based reassignment was explored to assess how taxonomic labels and dataset selection can influence marker discovery.
+
+** Conservation and divergence
+
+Marker conservation and divergence were examined across six *E. coli* phylogroups: A, B1, B2, D, E, and F. Cases in which alignments were unavailable were considered when interpreting the results.
+
+** Mobile genetic element tests
+
+MGE-related enrichment was investigated using keyword-based annotations and the Mobilome Annotation Pipeline (MAP). Permutation tests were used to assess enrichment in the tested datasets.
+
+* Main Findings
+
+- In the simulation setting, Fur recovered predefined markers more accurately.
+- Seqwin showed better runtime scaling and lower peak memory use.
+- Mapro with Seqwin produced markers and primers for more taxa in the evaluated analyses.
+- Phylogeny-based reassignment and the choice of database and target taxa affected marker discovery.
+- The MGE permutation tests did not identify significant enrichment in the tested datasets.
+- Cases without alignments are important when interpreting conservation and divergence results.
+
+These findings should be interpreted in the context of the datasets, parameters, and analyses used in this thesis.
+
+* Software and Tools
+
+The project uses or discusses the following tools and resources:
+
+- Fur
+- Seqwin
+- Mapro
+- phylonium
+- biobox  
+- fintac/ickle
+- BLAST
+- primer3
+- Mobilome Annotation Pipeline (MAP)
+
+Exact software versions, parameters, and execution steps should be taken from the relevant scripts, configuration files, and thesis documentation.
