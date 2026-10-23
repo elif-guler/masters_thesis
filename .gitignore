@@ -1,7 +1,7 @@
 # Temporary workflow files
 5_MGE_Tests/map_6strain/work/
 
-# Downloaded bioinformatics databases
+# Downloaded databases
 5_MGE_Tests/map_6strain/dbs/
 
 # Large local sequence databases
@@ -16,7 +16,7 @@
 __pycache__/
 .ipynb_checkpoints/
 
-# Bioinformatics databases and generated indexes
+# Generated indexes
 **/*.nsq
 **/*.nin
 **/*.nhr
@@ -35,7 +35,7 @@ __pycache__/
 5_MGE_Tests/map_6strain/work/
 5_MGE_Tests/map_6strain/dbs/
 
-# Large FASTA databases in dbs directories
+# Large databases in dbs directories
 **/dbs/**/*.fna
 **/dbs/**/*.fna.gz
 .git_old_backup/
