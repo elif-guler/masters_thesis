@@ -67,14 +67,13 @@ These findings should be interpreted in the context of the datasets, parameters,
 
 The project uses or discusses the following tools and resources:
 
-- Fur
-- Seqwin
-- Mapro
-- phylonium
-- biobox  
-- fintac/ickle
-- BLAST
-- primer3
-- Mobilome Annotation Pipeline (MAP)
+- Fur https://github.com/EvolBioInf/fur
+- Seqwin https://github.com/treangenlab/Seqwin
+- Mapro https://github.com/EvolBioInf/mapro
+- neighbors https://github.com/EvolBioInf/neighbors
+- phylonium https://github.com/EvolBioInf/phylonium
+- biobox https://github.com/EvolBioInf/biobox
+- primer3 https://github.com/primer3-org
+- Mobilome Annotation Pipeline (MAP) https://github.com/EBI-Metagenomics/mobilome-annotation-pipeline
 
 Exact software versions, parameters, and execution steps should be taken from the relevant scripts, configuration files, and thesis documentation.
