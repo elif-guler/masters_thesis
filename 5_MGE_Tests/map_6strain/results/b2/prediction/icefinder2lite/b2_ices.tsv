@@ -1,0 +1,3 @@
+contig	ice_id	ice_type	ice_location	ice_length	gc_content	direct_repeats	relaxase_type	mating_pair_formation_systems	close_to_RNA
+contig_1	contig_1_IME1	IME	2147270..2173085	25816	0.37	attL:2147270..2147294(TGGCTCCTCTGACTGGACTCGAAC),attR:2173061..2173085(TGGCTCCTCTGACTGGACTCGAAC)	MOBQ		tRNA-Asn(2173062..2173137)[-]
+contig_2	contig_2_ICE3	T4SS-type ICE	1575..91673	90099	0.48	-	MOBF	typeF	-

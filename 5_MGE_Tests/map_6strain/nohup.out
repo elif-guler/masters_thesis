@@ -1,0 +1,92 @@
+[33mNextflow 26.04.6 is available - Please consider updating your version to it(B[m
+
+ N E X T F L O W   ~  version 24.10.5
+
+Launching `https://github.com/EBI-Metagenomics/mobilome-annotation-pipeline` [sharp_euler] DSL2 - revision: 3aa408d26d987c0f721c07d4f0fed52a871de117
+
+[-        ] DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS -
+[-        ] DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE  -
+[-        ] DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB         -
+
+[-        ] DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS             -
+[-        ] DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE              -
+[-        ] DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB                     -
+[-        ] DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA              -
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT                   -
+[-        ] DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD               -
+[-        ] DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE                 -
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS               -
+[-        ] DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA                 -
+[-        ] DOWNLOAD_DATABASES:RGI_DOWNLOADDB                       -
+[-        ] DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES -
+
+executor >  local (9)
+[f1/f0a0e8] DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS                  | 0 of 1
+[8e/fb5c8a] DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE                   | 0 of 1
+[51/ca2568] DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB                          | 0 of 1
+[68/b5a1ac] DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA (${task.process}) | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT                        -
+[ce/95a0ff] DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD (cdd)              | 0 of 1
+[98/a542b2] DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE (update)             | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS                    -
+[12/2ea83c] DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA                      | 0 of 1
+[00/c16b67] DOWNLOAD_DATABASES:RGI_DOWNLOADDB                            | 0 of 1
+[1f/d874fc] DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES      | 0 of 1
+
+executor >  local (9)
+[f1/f0a0e8] DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS                  | 0 of 1
+[8e/fb5c8a] DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE                   | 0 of 1
+[51/ca2568] DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB                          | 0 of 1
+[68/b5a1ac] DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA (${task.process}) | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT                        -
+[ce/95a0ff] DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD (cdd)              | 0 of 1
+[98/a542b2] DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE (update)             | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS                    -
+[12/2ea83c] DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA                      | 0 of 1
+[00/c16b67] DOWNLOAD_DATABASES:RGI_DOWNLOADDB                            | 0 of 1
+[1f/d874fc] DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES      | 0 of 1
+
+executor >  local (9)
+[f1/f0a0e8] DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS                  | 0 of 1
+[8e/fb5c8a] DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE                   | 0 of 1
+[51/ca2568] DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB                          | 1 of 1 ✔
+[68/b5a1ac] DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA (${task.process}) | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT                        -
+[ce/95a0ff] DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD (cdd)              | 0 of 1
+[98/a542b2] DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE (update)             | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS                    -
+[12/2ea83c] DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA                      | 0 of 1
+[00/c16b67] DOWNLOAD_DATABASES:RGI_DOWNLOADDB                            | 0 of 1
+[1f/d874fc] DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES      | 0 of 1
+
+executor >  local (9)
+[f1/f0a0e8] DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS                  | 0 of 1
+[8e/fb5c8a] DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE                   | 0 of 1
+[51/ca2568] DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB                          | 1 of 1 ✔
+[68/b5a1ac] DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA (${task.process}) | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT                        -
+[ce/95a0ff] DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD (cdd)              | 0 of 1
+[98/a542b2] DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE (update)             | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS                    -
+[12/2ea83c] DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA                      | 0 of 1
+[00/c16b67] DOWNLOAD_DATABASES:RGI_DOWNLOADDB                            | 1 of 1 ✔
+[1f/d874fc] DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES      | 0 of 1
+
+ERROR ~ Failed to invoke `workflow.onComplete` event handler
+
+ -- Check script '/home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/main.nf' at line: 36 or see '.nextflow.log' file for more details
+WARN: Killing running tasks (7)
+
+executor >  local (9)
+[f1/f0a0e8] DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS                  | 0 of 1
+[8e/fb5c8a] DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE                   | 0 of 1
+[51/ca2568] DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB                          | 1 of 1 ✔
+[68/b5a1ac] DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA (${task.process}) | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT                        -
+[ce/95a0ff] DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD (cdd)              | 0 of 1
+[98/a542b2] DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE (update)             | 0 of 1
+[-        ] DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS                    -
+[12/2ea83c] DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA                      | 0 of 1
+[00/c16b67] DOWNLOAD_DATABASES:RGI_DOWNLOADDB                            | 1 of 1 ✔
+[1f/d874fc] DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES      | 0 of 1
+

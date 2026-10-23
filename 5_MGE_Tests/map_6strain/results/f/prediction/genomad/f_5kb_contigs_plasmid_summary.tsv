@@ -1,0 +1,3 @@
+seq_name	length	topology	n_genes	genetic_code	plasmid_score	fdr	n_hallmarks	marker_enrichment	conjugation_genes	amr_genes
+contig_5	8909	No terminal repeats	9	11	1.0000	NA	5	10.6275	MOBP1	NA
+contig_2	130440	No terminal repeats	151	11	1.0000	NA	28	91.2302	MOBF;F_traG;F_traH;F_traF;F_traN;F_traU;F_traW;virb4;F_traV;F_traK;F_traE;F_traL	NF012171;NF012174

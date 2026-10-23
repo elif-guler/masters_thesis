@@ -1,0 +1,9 @@
+CO	contig_1_007:1864532-1872987	CO_overlap_with_MGE
+CO	contig_1_012:1424869-1430421	CO_overlap_with_MGE
+CO	contig_1_023:654724-660373	CO_overlap_with_MGE
+CO	contig_2_025:57047-62711	CO_overlap_with_MGE
+CO	contig_1_026:1439918-1447913	CO_overlap_with_MGE
+CO	contig_1_029:949502-955216	CO_overlap_with_MGE
+co_12	mobile_element_type=compositional_outlier;gc=0.65;kmer=2.39;conf=0.797	no_cds
+co_15	mobile_element_type=compositional_outlier;gc=2.23;kmer=2.29;conf=0.763	no_cds
+icf_3	mobile_element_type=T4SS-type_ICE;relaxase_type=MOBP1;mpf_systems=typeT	mge<500bp

@@ -1,0 +1,194 @@
+{
+  "tool": {
+    "name": "MGnify BGC mapper",
+    "version": "mgnify_pipelines_toolkit_v1.4.18",
+    "description": "BGC subregions integrated from GECCO/antiSMASH/SanntiS into a base GFF.",
+    "configuration": {}
+  },
+  "records": [
+    {
+      "name": "contig_1",
+      "subregions": [
+        {
+          "start": 488917,
+          "end": 509817,
+          "label": "terpene-precursor",
+          "details": {
+            "ID": "contig_1|bgc:488918-509817",
+            "bgc_tools": [
+              "antismash"
+            ],
+            "sources": [
+              "antiSMASH:8.0.1"
+            ],
+            "antismash_region_id": [
+              "contig_1_region1"
+            ],
+            "antismash_product": [
+              "terpene-precursor"
+            ]
+          }
+        },
+        {
+          "start": 709282,
+          "end": 764237,
+          "label": "MergedBGC",
+          "details": {
+            "ID": "contig_1|bgc:709283-764237",
+            "bgc_tools": [
+              "antismash",
+              "gecco"
+            ],
+            "member_bgcs": "2",
+            "sources": [
+              "GECCO v0.10.1",
+              "antiSMASH:8.0.1"
+            ],
+            "antismash_region_id": [
+              "contig_1_region2"
+            ],
+            "antismash_product": [
+              "NRP-metallophore,NRPS"
+            ],
+            "gecco_bgc_type": [
+              "NRP"
+            ]
+          }
+        },
+        {
+          "start": 1128111,
+          "end": 1154404,
+          "label": "azole-containing-RiP",
+          "details": {
+            "ID": "contig_1|bgc:1128112-1154404",
+            "bgc_tools": [
+              "antismash"
+            ],
+            "sources": [
+              "antiSMASH:8.0.1"
+            ],
+            "antismash_region_id": [
+              "contig_1_region3"
+            ],
+            "antismash_product": [
+              "azole-containing-RiPP"
+            ]
+          }
+        },
+        {
+          "start": 2259047,
+          "end": 2322247,
+          "label": "MergedBGC",
+          "details": {
+            "ID": "contig_1|bgc:2259048-2322247",
+            "bgc_tools": [
+              "antismash",
+              "gecco"
+            ],
+            "member_bgcs": "2",
+            "sources": [
+              "GECCO v0.10.1",
+              "antiSMASH:8.0.1"
+            ],
+            "antismash_region_id": [
+              "contig_1_region4"
+            ],
+            "antismash_product": [
+              "NRP-metallophore,NRPS,T1PKS"
+            ],
+            "gecco_bgc_type": [
+              "NRP,Polyketide"
+            ]
+          }
+        },
+        {
+          "start": 2359407,
+          "end": 2378031,
+          "label": "Unknown",
+          "details": {
+            "ID": "contig_1|bgc:2359408-2378031",
+            "bgc_tools": [
+              "gecco"
+            ],
+            "sources": [
+              "GECCO v0.10.1"
+            ],
+            "gecco_bgc_type": [
+              "Unknown"
+            ]
+          }
+        },
+        {
+          "start": 3473826,
+          "end": 3506241,
+          "label": "MergedBGC",
+          "details": {
+            "ID": "contig_1|bgc:3473827-3506241",
+            "bgc_tools": [
+              "antismash",
+              "gecco"
+            ],
+            "member_bgcs": "2",
+            "sources": [
+              "GECCO v0.10.1",
+              "antiSMASH:8.0.1"
+            ],
+            "antismash_region_id": [
+              "contig_1_region5"
+            ],
+            "antismash_product": [
+              "NI-siderophore"
+            ],
+            "gecco_bgc_type": [
+              "Unknown"
+            ]
+          }
+        },
+        {
+          "start": 4037964,
+          "end": 4081552,
+          "label": "MergedBGC",
+          "details": {
+            "ID": "contig_1|bgc:4037965-4081552",
+            "bgc_tools": [
+              "antismash",
+              "gecco"
+            ],
+            "member_bgcs": "2",
+            "sources": [
+              "GECCO v0.10.1",
+              "antiSMASH:8.0.1"
+            ],
+            "antismash_region_id": [
+              "contig_1_region6"
+            ],
+            "antismash_product": [
+              "arylpolyene"
+            ],
+            "gecco_bgc_type": [
+              "Unknown"
+            ]
+          }
+        },
+        {
+          "start": 4261614,
+          "end": 4269582,
+          "label": "Unknown",
+          "details": {
+            "ID": "contig_1|bgc:4261615-4269582",
+            "bgc_tools": [
+              "gecco"
+            ],
+            "sources": [
+              "GECCO v0.10.1"
+            ],
+            "gecco_bgc_type": [
+              "Unknown"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "timestamp": "2026-09-08T11:18:22.473727+00:00"
+}

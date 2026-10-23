@@ -1,0 +1,2 @@
+contig	ice_id	ice_type	ice_location	ice_length	gc_content	direct_repeats	relaxase_type	mating_pair_formation_systems	close_to_RNA
+contig_2	contig_2_ICE2	T4SS-type ICE	5854..34892	29039	0.53	-	MOBF	typeF	-

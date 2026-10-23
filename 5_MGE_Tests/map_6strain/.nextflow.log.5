@@ -1,0 +1,395 @@
+Sep-07 16:26:25.712 [main] DEBUG nextflow.cli.Launcher - $> nextflow run EBI-Metagenomics/mobilome-annotation-pipeline -r 3aa408d26d987c0f721c07d4f0fed52a871de117 --download_dbs /home/elif/msthesis/weeks/12th_week/map_6strain/dbs -profile docker
+Sep-07 16:26:25.896 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.5
+Sep-07 16:26:25.940 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/elif/.nextflow/plugins; core-plugins: nf-amazon@2.9.2,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.4
+Sep-07 16:26:25.968 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Sep-07 16:26:25.969 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Sep-07 16:26:25.973 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Sep-07 16:26:25.989 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Sep-07 16:26:26.004 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/elif/.nextflow/scm
+Sep-07 16:26:27.023 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/.git/config; branch: null; remote: origin; url: https://github.com/EBI-Metagenomics/mobilome-annotation-pipeline.git
+Sep-07 16:26:27.064 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Sep-07 16:26:27.075 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/.git/config; branch: null; remote: origin; url: https://github.com/EBI-Metagenomics/mobilome-annotation-pipeline.git
+Sep-07 16:26:28.009 [main] DEBUG nextflow.scm.AssetManager - WARN: Cannot find any Git revision matching: null; ls-remote: [Ref[refs/pull/104/head=b2f8e915373611c14844421ae5aa9aba19efbda1(-1)], Ref[refs/pull/71/head=6b625c951c67c3c5b480414ba7f6c4ee0c15c04a(-1)], Ref[refs/pull/85/head=248a06cdfbab049912e1c04083ce022ec0906130(-1)], Ref[refs/pull/69/head=186ff400348513634b5ff3b36971e94fe80f270d(-1)], Ref[refs/pull/40/head=109ba0fdbb6065a4dc74041c89301a2828156115(-1)], Ref[refs/pull/24/head=95db2448cbe9cb934d7e24939b35824f68dd5760(-1)], Ref[refs/pull/10/head=9cc751fa41c5716a8d357cb0b5006fe63af95e3a(-1)], Ref[refs/pull/55/head=c7901de2b5411492c811d3b2bd28c318ae596f97(-1)], Ref[refs/pull/23/head=1c6ebd1daa2143455cf3b0d7f0f1eda5c503a140(-1)], Ref[refs/tags/v2.0.1=606b3737beef64cf784387ff61a68161d8bbf44d(-1)], Ref[refs/tags/v2.0.2=3cfab2b53f5ca8065085aa5428bc6466cc164923(-1)], Ref[refs/pull/103/head=bf344a3467d429027efaeb52eefb21e7615446bf(-1)], Ref[refs/pull/70/head=663c409c220237dbc7bb3b7b39fd7ee7e6ee23b3(-1)], Ref[refs/pull/3/head=ac485a8e624f48cd0d9487e0fd83fcaa8562018c(-1)], Ref[refs/tags/v2.0.0-rc.1=0b6f38306b191f35241fbc2bba4e57fb57e2f41a(-1)], Ref[refs/pull/38/head=3b3dba4774813211100120bd846ba516456d7c38(-1)], Ref[refs/pull/54/head=fa8b786c432781fb84dddc63aa476d7495db97bc(-1)], Ref[refs/pull/99/head=09660e3d9d9eeaeda31e807a80be83b782931bcd(-1)], Ref[refs/tags/v2.0.0=055b86222d63f97c90338f4277a104b654d3c6e2(-1)], Ref[refs/pull/98/head=492a50c50e844d8aada8a6f6475253a894b78306(-1)], Ref[refs/pull/84/head=7e477e2930a0229fef50a8c1a067f4956415ac24(-1)], Ref[refs/pull/11/head=158441390719b81346f7a54df115f366e40baca9(-1)], Ref[refs/pull/39/head=4f300e0d7db2a4e6ca8fa5f653e633b019e1bac5(-1)], Ref[refs/pull/87/head=fb5975ec34d4b02ccaae4b3e1e70c72a4509bda1(-1)], Ref[refs/pull/4/head=82b62c28dfc9f8ce87450f29617279453d98eade(-1)], Ref[refs/pull/52/head=adb48d22a6daeb2eb72b4d3ae459c11f81264598(-1)], Ref[refs/pull/1/head=5a877f33f099bc24c95bec0d79f3b87b9d5bae21(-1)], Ref[refs/pull/102/head=08cb4bbf4bebde3a3fc7df279001efcd21fa6e52(-1)], Ref[refs/pull/25/head=17356d1dc7a2154b0e2d187ad43ec671be5890b5(-1)], Ref[refs/pull/49/head=91e5e566277f2df459dce1e997bb9a47c5dc7d8f(-1)], Ref[refs/pull/88/head=791857fa346d2aa2f7f623af074448a610a2f588(-1)], Ref[refs/pull/60/head=4db7cc3d5dbc2e70d8e21cce6c0a505492b5ba57(-1)], Ref[refs/pull/18/head=055b86222d63f97c90338f4277a104b654d3c6e2(-1)], Ref[refs/tags/v5.0.1=5c7a32d47379343ba73f03b24fe1d87067f2ef22(-1)], Ref[refs/pull/82/head=c1c19942836397c733dc401ffe802293e4f57ee6(-1)], Ref[refs/tags/v5.0.0=da3177576d103e7098837d73769473bffa6cdd88(-1)], Ref[refs/pull/101/head=35a5b291ee8d3a77b6fe3462b083fed7519ceb0a(-1)], Ref[refs/pull/66/head=0f4c921a4c149a13397a1378288bcb9d29d74408(-1)], Ref[refs/pull/65/head=8e8434d22041527bdde0661549d638aff050faf6(-1)], Ref[refs/pull/27/head=ede3fbeef7f5f7bef26f03011b4a881b17d92368(-1)], Ref[refs/pull/43/head=e261efb282764485275bea9fa735dded4a4cfae1(-1)], Ref[refs/pull/12/head=e32f57e3404339a0a43324acb9a75b2bae581217(-1)], Ref[refs/pull/2/head=82b62c28dfc9f8ce87450f29617279453d98eade(-1)], Ref[refs/pull/59/head=278847c1ea9b8a66cbf05f67ca07b2d725f9384c(-1)], Ref[refs/pull/5/head=d9577c4cfd5c3688429fe99294627130f310451a(-1)], Ref[refs/pull/53/head=fde12bcfccefa65cc3999532924e047b9493967f(-1)], Ref[refs/pull/111/head=fcac7be49d57e664f8500484e98d0b096636ff05(-1)], Ref[refs/pull/56/head=ae0801fb5e5b8773e30dcde356ccc063654b9646(-1)], Ref[refs/pull/8/head=b04a449a1d5e294caa838101600873267ad87f1c(-1)], Ref[refs/pull/31/head=6f58eed791fbb0c0b975005c397097a28eacd5da(-1)], Ref[refs/pull/34/head=f8d4d50ae43b220e91e59855c2c1042d48e71e02(-1)], Ref[refs/pull/50/head=194ab21fe0a98307b042c22642a14bd0a0858cbe(-1)], Ref[refs/tags/v3.0.1=3fd95ff861cedb9ffded80e298850246b0bacde1(-1)], Ref[refs/tags/v3.0.0=d952a00c79e1bde96b31b496efce881d269ece3d(-1)], Ref[refs/pull/72/head=f5bba0ba078e3173d4c9d5052b7775fa0e768d50(-1)], Ref[refs/pull/97/head=bc89b60f5673472fc4058446bec627f1b66ab6c8(-1)], Ref[refs/tags/v4.2.2=ad137406b859be93bb8fd3fc460fce41d1b31316(-1)], Ref[refs/pull/78/head=277df4fdff2f9cb4e140e3869e44e4e0e2b2416a(-1)], Ref[refs/pull/91/head=2934cd7f789ba45d5d657c8c006d3b36a8921ae0(-1)], Ref[refs/tags/v4.2.1=2f638d10275c3146e32ed0ac4629ae4bc26479d8(-1)], Ref[refs/pull/75/head=f1edde857ee4e96c62d6544cd6ae3802093acc31(-1)], Ref[refs/tags/v4.2.3=b865f30e65bcd8684d7cdb3b8c6cdf8a3fe43612(-1)], Ref[refs/tags/v4.2.0=8b0c2ffa76d79938e40c0eef0b1aacd3ba41a58a(-1)], Ref[refs/pull/32/head=4150d115fb940bf0ff27d7ec148b5a8e14a5ba68(-1)], Ref[refs/pull/77/head=0e20e50deef87ebae51354ad22b3f1f5818c6be0(-1)], Ref[refs/pull/112/head=c0709857acfa716ce05354fbceb92e9d71dd3282(-1)], Ref[refs/tags/v1.0.0=52fde47f785995483c8c620b66693a1cd97e6012(-1)], Ref[refs/pull/29/head=04f6514c9a7b64125f6262e09ef0fcc218631916(-1)], Ref[refs/pull/16/head=5d4c73f0487b4d0ca80eac2a951c11a89b06368a(-1)], Ref[refs/pull/93/head=b762381fe8c5c0bffc4faca4f716e4691eab164d(-1)], Ref[refs/pull/76/head=74f6d580987607507f51e36386be1e15d3d2e3a1(-1)], Ref[refs/pull/15/head=fff3968082dd9e40314019540c34fa38c951053e(-1)], Ref[refs/pull/9/head=376b23e0f1040f3b504c43aa48f6d1a6c95f8b18(-1)], Ref[refs/pull/62/head=664199068edfa178785974aa8b0697d5e6a54bf4(-1)], Ref[refs/pull/14/head=dfcd48903a6ca06adea32e63d6bde87934b75045(-1)], Ref[refs/pull/92/head=fddf2d5d8026ee033e3a605bd2c8a422f877ea14(-1)], Ref[refs/pull/28/head=024e4f269f2501974c7903e1be0a9998083d6408(-1)], Ref[refs/pull/81/head=ea7fa658bc7c84d788aca4513876b7efc120ff0a(-1)], Ref[refs/pull/44/head=4f9af000dd51efbfde3eb901de6666c1e23cdba4(-1)], Ref[refs/pull/47/head=49085f1b37e0673ab464491f0a3f20bf8d5a2de5(-1)], Ref[refs/pull/7/head=68e681489c38bc5367a709b7a564e9b9c6a2bd18(-1)], Ref[refs/heads/main=da3177576d103e7098837d73769473bffa6cdd88(-1)], Ref[refs/pull/30/head=6f7f0bf5e276259854f07efcb3e0cfbd55acea14(-1)], Ref[refs/pull/33/head=51d83a3909fe387920a68f970743b5f434168ae3(-1)], Ref[refs/pull/17/head=808eedfec4f6feeb338db314a4c166ee6606c79c(-1)], Ref[refs/tags/v4.1.0=49686cdc3293604557abe756ac9ad0cec81c0c39(-1)], Ref[refs/pull/74/head=49686cdc3293604557abe756ac9ad0cec81c0c39(-1)], SymbolicRef[HEAD -> refs/heads/dev=5c7a32d47379343ba73f03b24fe1d87067f2ef22(-1)], Ref[refs/pull/90/head=64e64bfbb4aa3d8cce6a3f946622438bae962177(-1)], Ref[refs/pull/13/head=12e08a10e800ad1104b2d79df354788a80837e92(-1)], Ref[refs/pull/26/head=17356d1dc7a2154b0e2d187ad43ec671be5890b5(-1)], Ref[refs/pull/51/head=5399fa48ab0bd072f7b02c68d43e61386d054071(-1)], Ref[refs/pull/19/head=5d11325450ce44290b863548ff0bec13141d64a3(-1)], Ref[refs/pull/100/head=a2e923cdb59d89e3538d919b593288907220fd5f(-1)], Ref[refs/pull/73/head=058409ec8a6712bc1c9718a011efaf13e4b8c3db(-1)], Ref[refs/pull/57/head=00baf9ace96d6866fb260126bf3f4c61cf7a8e0e(-1)], Ref[refs/pull/6/head=f4047348192dbbb718e346680fe670fb3987fc8b(-1)], Ref[refs/pull/64/head=80335641c43a59127981192103e11732c4f74d96(-1)], Ref[refs/pull/48/head=12ab5beb64b7556e37d9350958f4187892ed2e55(-1)], Ref[refs/pull/45/head=cf222b1b68094900c6ada5eafef9fa254edd271a(-1)], Ref[refs/pull/61/head=e80adc71431c0922d7bab914959de05274badc11(-1)], Ref[refs/pull/42/head=0b03f109841dc616d397903029d83db18bf22df7(-1)], Ref[refs/heads/dev=5c7a32d47379343ba73f03b24fe1d87067f2ef22(-1)], Ref[refs/pull/86/head=565b56b67cb2f2a332f801bd5120a8f8cf73c080(-1)], Ref[refs/pull/80/head=a9a945ad4c412d25b13f4e5b3086f689bfae73dc(-1)], Ref[refs/pull/89/head=1af8ba743bb49d66b09d451e4a739d0525812d21(-1)], Ref[refs/pull/67/head=37ed15e6e86f87df77875a5978944370b3d01220(-1)], Ref[refs/tags/v4.0.0=37c796dd706048de4f8ed496e3e314bbac48663c(-1)]]
+Sep-07 16:26:28.023 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/nextflow.config
+Sep-07 16:26:28.026 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/nextflow.config
+Sep-07 16:26:28.037 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/elif/.nextflow/secrets/store.json
+Sep-07 16:26:28.041 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@317890ea] - activable => nextflow.secret.LocalSecretsProvider@317890ea
+Sep-07 16:26:28.065 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `docker`
+Sep-07 16:26:28.602 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [apple, debug, shifter, test, charliecloud, apptainer, singularity, arm, local, docker, podman]
+Sep-07 16:26:28.654 [main] DEBUG nextflow.cli.CmdRun - Enabling nextflow strict mode
+Sep-07 16:26:28.655 [main] DEBUG nextflow.cli.CmdRun - Enabling module binaries
+Sep-07 16:26:28.657 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Sep-07 16:26:28.658 [main] DEBUG nextflow.cli.CmdRun - Launching `https://github.com/EBI-Metagenomics/mobilome-annotation-pipeline` [drunk_thompson] DSL2 - revision: 3aa408d26d987c0f721c07d4f0fed52a871de117
+Sep-07 16:26:28.660 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins declared=[nf-schema@2.3.0]
+Sep-07 16:26:28.661 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Sep-07 16:26:28.661 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-schema@2.3.0]
+Sep-07 16:26:28.662 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-schema version: 2.3.0
+Sep-07 16:26:28.669 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-schema@2.3.0' resolved
+Sep-07 16:26:28.669 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-schema@2.3.0'
+Sep-07 16:26:28.675 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-schema@2.3.0
+Sep-07 16:26:28.739 [main] DEBUG nextflow.Session - Session UUID: bb28b6a1-33ac-40dd-9399-f3766be9c4d5
+Sep-07 16:26:28.740 [main] DEBUG nextflow.Session - Run name: drunk_thompson
+Sep-07 16:26:28.740 [main] DEBUG nextflow.Session - Executor pool size: 64
+Sep-07 16:26:28.751 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Sep-07 16:26:28.758 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=192; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Sep-07 16:26:28.778 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.10.5 build 5935
+  Created: 04-03-2025 17:55 UTC (18:55 CEST)
+  System: Linux 6.8.0-136-generic
+  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 17.0.20+8-1-24.04-Ubuntu
+  Encoding: UTF-8 (UTF-8)
+  Process: 679584@thymine [127.0.0.1]
+  CPUs: 64 - Mem: 251.8 GB (4 GB) - Swap: 46.6 GB (46.6 GB)
+Sep-07 16:26:28.795 [main] DEBUG nextflow.Session - Work-dir: /home/elif/msthesis/weeks/12th_week/map_6strain/work [ext2/ext3]
+Sep-07 16:26:28.853 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Sep-07 16:26:28.867 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Sep-07 16:26:28.903 [main] DEBUG nextflow.Session - Observer factory: ValidationObserverFactory
+Sep-07 16:26:28.969 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Sep-07 16:26:28.979 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 65; maxThreads: 1000
+Sep-07 16:26:29.157 [main] DEBUG nextflow.Session - Session start
+Sep-07 16:26:29.160 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /home/elif/msthesis/weeks/12th_week/map_6strain/results/pipeline_info/execution_trace_2026-09-07_16-26-28.txt
+Sep-07 16:26:29.350 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Sep-07 16:26:29.950 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [validateParameters:validateParameters, paramsHelp:paramsHelp, samplesheetToList:samplesheetToList]; plugin Id: nf-schema
+Sep-07 16:26:31.749 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [samplesheetToList:samplesheetToList]; plugin Id: nf-schema
+Sep-07 16:26:35.171 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS
+Sep-07 16:26:35.175 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS` matches process DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS
+Sep-07 16:26:35.196 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.196 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.203 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Sep-07 16:26:35.209 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=64; memory=251.8 GB; capacity=64; pollInterval=100ms; dumpInterval=5m
+Sep-07 16:26:35.211 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Sep-07 16:26:35.304 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE
+Sep-07 16:26:35.305 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE` matches process DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE
+Sep-07 16:26:35.312 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.312 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.318 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB
+Sep-07 16:26:35.320 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB` matches process DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB
+Sep-07 16:26:35.321 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.322 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.338 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA
+Sep-07 16:26:35.342 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.343 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.353 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT
+Sep-07 16:26:35.354 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT` matches process DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT
+Sep-07 16:26:35.357 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.357 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.365 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD
+Sep-07 16:26:35.367 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD` matches process DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD
+Sep-07 16:26:35.369 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.369 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.377 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE
+Sep-07 16:26:35.379 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.380 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.386 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS
+Sep-07 16:26:35.389 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS` matches process DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS
+Sep-07 16:26:35.391 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.391 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.399 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA
+Sep-07 16:26:35.401 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA` matches process DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA
+Sep-07 16:26:35.404 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.404 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.410 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:RGI_DOWNLOADDB
+Sep-07 16:26:35.411 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:RGI_DOWNLOADDB` matches process DOWNLOAD_DATABASES:RGI_DOWNLOADDB
+Sep-07 16:26:35.413 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.413 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.419 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_single` matches labels `process_single` for process with name DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES
+Sep-07 16:26:35.421 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES` matches process DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES
+Sep-07 16:26:35.422 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Sep-07 16:26:35.422 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Sep-07 16:26:35.427 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: PATHOFACT2_INTEGRATOR, DEEPARG_DOWNLOADDATA, DB_DOWNLOAD_VFDB, REFINE_BOUNDARIES, ANTISMASH_JSON2GFF, TABIX_BGZIPTABIX_FULL, TABIX_BGZIPTABIX, MERGE_RESULTS, TABIX_BGZIP, RGI_MAIN, BLASTP_PROKKA, INTEGRATOR, DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA, VMATCH, LOCALCDSEARCH_DOWNLOAD, DEEPARG_PREDICT, ANTISMASH_ANTISMASH, TABIX_BGZIP_EXTRA, GFF2GBK, DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS, VIRIFY_QC, OUTLIER_FINDER, DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE, ANTISMASH_ANTISMASHDOWNLOADDATABASES, INTEGRONFINDER, RGI_CARDANNOTATION, TABIX_BGZIP_FULL, DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES, FASTA_WRITER, RGI_DOWNLOADDB, INTERPROSCAN, SANNTIS, GFF_MAPPING, GENOMAD, GECCO_RUN, MACSYFINDER, DIAMOND_BLASTP, ARAGORN, PATHOFACT2_VIRULENCE, AMRINTEGRATOR, MULTIQC, TABIX_BGZIPTABIX_CLEAN, DOWNLOAD_DATABASES:RGI_DOWNLOADDB, TRNAS_INTEGRATOR, COMBINEREPORTER, DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE, GT_GFF3VALIDATOR, PROCESS_BLASTP_PROKKA, PATHOFACT2_TOXINS, WGET, DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB, DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD, AMRFINDERPLUS_UPDATE, DB_DOWNLOAD_MOBILOME_DBS, GECCO_CONVERT, DIAMOND_MAKEDB, HAMRONIZATION_DEEPARG, RENAME, CHECKV_DOWNLOADDATABASE, TABIX_BGZIP_CLEAN, ISESCAN, LOCALCDSEARCH_ANNOTATE, REFORMAT_AMRFINDER_TSV, CHECKV_ENDTOEND, DB_UNTAR_PATHOFACT, DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS, PATHOFACT2_EXTRACTFASTA, DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA, BGCSMAPPER, PRODIGAL, HMMSCAN, DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT, DB_UNTAR_AMRFINDERPLUS, AMRFINDERPLUS_RUN, TABIX_BGZIPTABIX_EXTRA, PATHOFACT2_DOWNLOADDATA, BLAST_BLASTP, CUSTOM_DUMPSOFTWAREVERSIONS, PRESCAN_TO_FASTA, HAMRONIZATION_RGI
+Sep-07 16:26:35.448 [main] DEBUG nextflow.Session - Igniting dataflow network (13)
+Sep-07 16:26:35.448 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS
+Sep-07 16:26:35.449 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE
+Sep-07 16:26:35.449 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB
+Sep-07 16:26:35.450 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA
+Sep-07 16:26:35.450 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT
+Sep-07 16:26:35.450 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD
+Sep-07 16:26:35.451 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE
+Sep-07 16:26:35.451 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS
+Sep-07 16:26:35.451 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA
+Sep-07 16:26:35.452 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:RGI_DOWNLOADDB
+Sep-07 16:26:35.452 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES
+Sep-07 16:26:35.455 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_0638b6c2082ec5e0: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/nf-core/custom/dumpsoftwareversions/main.nf
+  Script_dfa0d483bd7a7ef3: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/ebi-metagenomics/amrintegrator/main.nf
+  Script_04a5bf2af8eed4ac: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/process_blastp_prokka.nf
+  Script_3bce0d6d45c5ddc1: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/local/db_untar_pathofact.nf
+  Script_6d13dbcfb869dd49: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/main.nf
+  Script_5260e699684d966c: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/nf-core/antismash/antismash/main.nf
+  Script_12f77626f77b86e4: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/mobilomeannotation.nf
+  Script_add4b9d195e4e0c9: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/deeparg/predict/main.nf
+  Script_3f5ac345fed36acb: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/nf-core/localcdsearch/annotate/main.nf
+  Script_a997aea8fbecd2b5: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/nf-core/multiqc/main.nf
+  Script_2b3f867474b4bd37: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/aragorn.nf
+  Script_dc700cbd8aa0f4a5: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/rename_contigs.nf
+  Script_1b77723d455b6b9d: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/local/db_download_vfdb.nf
+  Script_c2b645c35fe868ef: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/download_databases.nf
+  Script_b1ca584d3bc41859: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/rgi/main/main.nf
+  Script_342f934aaa3db6d9: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/fasta_writer.nf
+  Script_7b7f21d8cb46a057: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/gff_mapping_compression_and_indexing.nf
+  Script_92a09d2665beb7ad: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/nf-core/gecco/convert/main.nf
+  Script_fd6c50f48d3c24ca: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/ebi-metagenomics/mgnifypipelinestoolkit/gff2gbk/main.nf
+  Script_dd8a9ec805b76729: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/nf-core/blast/blastp/main.nf
+  Script_01ab68ed4b47f9df: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/icefinder2lite.nf
+  Script_104ba625cb4cd6dc: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/nf-core/wget/main.nf
+  Script_6b775d0b98c6398a: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/nf-core/checkv/downloaddatabase/main.nf
+  Script_f0357fbd745ea74c: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/nf-core/gt/gff3validator/main.nf
+  Script_c769596d46da71ee: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/ebi-metagenomics/sanntis/main.nf
+  Script_53bd44e919e66337: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/amrfinderplus/update/main.nf
+  Script_b55f5ca060430e9c: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/prescan_to_fasta.nf
+  Script_e3bc58084c78a738: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/nf-core/tabix/bgziptabix/main.nf
+  Script_ccf0551b3f882368: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/ebi-metagenomics/interproscan/main.nf
+  Script_5872e3be770aa227: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/rgi/cardannotation/main.nf
+  Script_b5bfaf0724c228d7: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/nf-core/localcdsearch/download/main.nf
+  Script_f97ef2131ccbe6a1: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/hmmscan.nf
+  Script_1f57a34aaa12b495: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/nf-core/antismash/antismashdownloaddatabases/main.nf
+  Script_287e3f177a925547: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/vmatch.nf
+  Script_9a907096e4ef31b0: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/nf-core/gecco/run/main.nf
+  Script_4f884c023d579dee: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/deeparg/downloaddata/main.nf
+  Script_225351a7c39709c7: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/main.nf
+  Script_0445fd2f804ab606: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/ice_refine_boundaries.nf
+  Script_0447ed9bdbd356d4: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/integronfinder.nf
+  Script_fcdbcab2dd8fe25b: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/nf-core/tabix/bgzip/main.nf
+  Script_72693d54d0695343: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/compositional_outlier_detection.nf
+  Script_1aa1ed91db11ad90: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/local/reformat_amrfinder_tsv.nf
+  Script_ff45d658e6e79b13: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/integrator.nf
+  Script_aea3152d10351229: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/hamronization/rgi/main.nf
+  Script_1e00eddfc5a1f3e4: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/ebi-metagenomics/antismash/json2gff/main.nf
+  Script_5ce7c5109441b804: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/virify_qc.nf
+  Script_a6689fe201b22300: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/parse_annotation_manifest.nf
+  Script_d97bd3dea2cf806d: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/ebi-metagenomics/pathofact2/toxins/main.nf
+  Script_84cbb53066625390: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/genomad.nf
+  Script_03421beb07843de9: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/ebi-metagenomics/rgi/downloaddb/main.nf
+  Script_14dbdc6ca17b60db: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/nf-core/diamond/blastp/main.nf
+  Script_be83a1bc427668a8: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/ebi-metagenomics/pathofact2/extractfasta/main.nf
+  Script_38370985030d9ed8: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/macsyfinder.nf
+  Script_ab47cf1e08198d3e: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/nf-core/prodigal/main.nf
+  Script_57e7ed625a2bbd98: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/local/db_untar_amrfinderplus.nf
+  Script_b9a22d6d2a6a0a45: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/amrfinderplus/run/main.nf
+  Script_b2235b6717ea9448: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/main.nf
+  Script_fdee42d308f4efc0: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/bgc_annotation/../../../modules/ebi-metagenomics/mgnifypipelinestoolkit/bgcsmapper/main.nf
+  Script_986a704b48b4193e: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/combinereporter.nf
+  Script_78e0cc644570527e: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/main.nf
+  Script_0862a0676413922c: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/ebi-metagenomics/pathofact2/downloaddata/main.nf
+  Script_32748acd5a1b8440: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/ebi-metagenomics/pathofact2/integrator/main.nf
+  Script_27e8da4c208bc922: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/nf-core/diamond/makedb/main.nf
+  Script_84950e8484ad4d22: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/compositional_outlier_detection.nf
+  Script_7c857349911b55be: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/isescan.nf
+  Script_cd94520468470831: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/pathofact2/../../../modules/ebi-metagenomics/pathofact2/virulence/main.nf
+  Script_b993ab28114c171c: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./subworkflows/local/../../modules/local/db_download_mobilome_dbs.nf
+  Script_70ce866d92d609be: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/ebi-metagenomics/amr_annotation/../../../modules/nf-core/hamronization/deeparg/main.nf
+  Script_4cc0c2f7ba13c9f2: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/gff_mapping.nf
+  Script_36293d1713dc17f5: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../subworkflows/local/../../modules/local/merge_results.nf
+  Script_ab100866b9f71b65: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/local/trnas_integrator.nf
+  Script_fea56d14eaf8b34c: /home/elif/.nextflow/assets/EBI-Metagenomics/mobilome-annotation-pipeline/./workflows/../modules/nf-core/checkv/endtoend/main.nf
+Sep-07 16:26:35.455 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Sep-07 16:26:35.455 [main] DEBUG nextflow.Session - Session await
+Sep-07 16:26:35.672 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.675 [Task submitter] INFO  nextflow.Session - [e4/9d1ece] Submitted process > DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA (${task.process})
+Sep-07 16:26:35.692 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.692 [Task submitter] INFO  nextflow.Session - [a3/4b6e28] Submitted process > DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE
+Sep-07 16:26:35.700 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.700 [Task submitter] INFO  nextflow.Session - [b3/f22b7f] Submitted process > DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB
+Sep-07 16:26:35.708 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.708 [Task submitter] INFO  nextflow.Session - [b9/5555b6] Submitted process > DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS
+Sep-07 16:26:35.716 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.717 [Task submitter] INFO  nextflow.Session - [d6/26e616] Submitted process > DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES
+Sep-07 16:26:35.724 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.724 [Task submitter] INFO  nextflow.Session - [d7/8dfa75] Submitted process > DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD (cdd)
+Sep-07 16:26:35.731 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.732 [Task submitter] INFO  nextflow.Session - [44/d7352e] Submitted process > DOWNLOAD_DATABASES:RGI_DOWNLOADDB
+Sep-07 16:26:35.742 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.743 [Task submitter] INFO  nextflow.Session - [2a/daa522] Submitted process > DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE (update)
+Sep-07 16:26:35.752 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:26:35.753 [Task submitter] INFO  nextflow.Session - [a3/5da94e] Submitted process > DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA
+Sep-07 16:26:40.455 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_VFDB; status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b3/f22b7f5827e1f66045aa0b164d89af]
+Sep-07 16:26:40.456 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=192; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Sep-07 16:26:40.487 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=192; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Sep-07 16:26:44.697 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: DOWNLOAD_DATABASES:RGI_DOWNLOADDB; status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/44/d7352e812ec950bfd385bb2dccd08b]
+Sep-07 16:27:05.256 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: DOWNLOAD_DATABASES:PATHOFACT2_DOWNLOADDATA (${task.process}); status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/e4/9d1ececb4d851bd86f04b6432601d4]
+Sep-07 16:27:05.315 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:27:05.316 [Task submitter] INFO  nextflow.Session - [04/6df802] Submitted process > DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT (1)
+Sep-07 16:27:08.239 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: DOWNLOAD_DATABASES:DB_UNTAR_PATHOFACT (1); status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/04/6df8028ab8c49b48052c7900d8a13e]
+Sep-07 16:27:12.952 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: DOWNLOAD_DATABASES:AMRFINDERPLUS_UPDATE (update); status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/2a/daa52209b7911ff47acd1368623526]
+Sep-07 16:27:12.977 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Sep-07 16:27:12.977 [Task submitter] INFO  nextflow.Session - [43/3c658f] Submitted process > DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS
+Sep-07 16:27:15.728 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: DOWNLOAD_DATABASES:DB_UNTAR_AMRFINDERPLUS; status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/43/3c658fffbd35d8e8d03e1f82d40fdb]
+Sep-07 16:27:54.272 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: DOWNLOAD_DATABASES:LOCALCDSEARCH_DOWNLOAD (cdd); status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/d7/8dfa75e74dac07089e2b148305ce96]
+Sep-07 16:29:22.929 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: DOWNLOAD_DATABASES:DEEPARG_DOWNLOADDATA; status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/a3/5da94e10d11b3cd081384072d401b6]
+Sep-07 16:30:33.447 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: DOWNLOAD_DATABASES:CHECKV_DOWNLOADDATABASE; status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/a3/4b6e2899c91818fb8c678366e39ae7]
+Sep-07 16:31:18.700 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: DOWNLOAD_DATABASES:ANTISMASH_ANTISMASHDOWNLOADDATABASES; status: COMPLETED; exit: 0; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/d6/26e616e607e7a6e416501fefbc3531]
+Sep-07 16:31:35.319 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 16:36:35.407 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 16:41:35.430 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 16:46:35.460 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 16:51:35.482 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 16:56:35.501 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 17:01:35.522 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 17:06:35.539 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 17:11:35.561 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: RUNNING; exit: -; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 17:15:53.294 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; status: COMPLETED; exit: 4; error: -; workDir: /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f]
+Sep-07 17:15:53.301 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS; work-dir=/home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f
+  error [nextflow.exception.ProcessFailedException]: Process `DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS` terminated with an error exit status (4)
+Sep-07 17:15:53.328 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS'
+
+Caused by:
+  Process `DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS` terminated with an error exit status (4)
+
+
+Command executed:
+
+  wget https://zenodo.org/records/14886553/files/genomad_db_v1.9.tar.gz
+  tar -xzf genomad_db_v1.9.tar.gz
+  rm genomad_db_v1.9.tar.gz
+  
+  wget ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+  tar -xzf icf2_dbs.tar.gz
+  rm icf2_dbs.tar.gz
+  
+  cat <<-END_VERSIONS > versions.yml
+  "DOWNLOAD_DATABASES:DB_DOWNLOAD_MOBILOME_DBS":
+      wget: $(wget --version | head -1 | cut -d ' ' -f 3)
+  END_VERSIONS
+
+Command exit status:
+  4
+
+Command output:
+  (empty)
+
+Command error:
+  --2026-09-07 14:52:09--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:11) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 14:54:32--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:12) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 14:56:56--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:13) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 14:59:19--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:14) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 15:01:42--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:15) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 15:04:06--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:16) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 15:06:29--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:17) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 15:08:52--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:18) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 15:11:16--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:19) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Retrying.
+  
+  --2026-09-07 15:13:39--  ftp://ftp.ebi.ac.uk/pub/databases/metagenomics/pipelines/tool-dbs/icefinder2lite/icf2_dbs.tar.gz
+    (try:20) => ‘icf2_dbs.tar.gz’
+  Connecting to ftp.ebi.ac.uk|193.62.193.165|:21... failed: Connection timed out.
+  Giving up.
+
+Work dir:
+  /home/elif/msthesis/weeks/12th_week/map_6strain/work/b9/5555b6d8916532b6cc72a90930714f
+
+Container:
+  quay.io/biocontainers/gnu-wget:1.18--h36e9172_9
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+Sep-07 17:15:53.333 [main] DEBUG nextflow.Session - Session await > all processes finished
+Sep-07 17:15:53.334 [TaskFinalizer-1] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Sep-07 17:15:53.343 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Sep-07 17:15:53.343 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Sep-07 17:15:53.347 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Sep-07 17:15:53.347 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Sep-07 17:15:53.350 [main] ERROR nextflow.script.WorkflowMetadata - Failed to invoke `workflow.onComplete` event handler
+java.lang.NullPointerException: Cannot get property 'download_dbs' on null object
+	at org.codehaus.groovy.runtime.NullObject.getProperty(NullObject.java:92)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_b2235b6717ea9448$_runScript_closure2$_closure4$_closure5.doCall(Script_b2235b6717ea9448:36)
+	at Script_b2235b6717ea9448$_runScript_closure2$_closure4$_closure5.doCall(Script_b2235b6717ea9448)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowMetadata$_invokeOnComplete_closure3.doCall(WorkflowMetadata.groovy:428)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:422)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2394)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2379)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2420)
+	at nextflow.script.WorkflowMetadata.invokeOnComplete(WorkflowMetadata.groovy:426)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.script.WorkflowMetadata$_closure2.doCall(WorkflowMetadata.groovy:286)
+	at nextflow.script.WorkflowMetadata$_closure2.call(WorkflowMetadata.groovy)
+	at groovy.lang.Closure.run(Closure.java:505)
+	at nextflow.Session.shutdown0(Session.groovy:741)
+	at nextflow.Session.destroy(Session.groovy:694)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:260)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:146)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:376)
+	at nextflow.cli.Launcher.run(Launcher.groovy:503)
+	at nextflow.cli.Launcher.main(Launcher.groovy:658)
+Sep-07 17:15:53.363 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=10; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=18m 23s; failedDuration=49m 18s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=9; peakCpus=15; peakMemory=90 GB; ]
+Sep-07 17:15:53.364 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Sep-07 17:15:53.366 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Sep-07 17:15:54.160 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Sep-07 17:15:54.377 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Sep-07 17:15:54.411 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-schema@2.3.0'
+Sep-07 17:15:54.412 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-schema
+Sep-07 17:15:54.414 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Sep-07 17:15:54.414 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

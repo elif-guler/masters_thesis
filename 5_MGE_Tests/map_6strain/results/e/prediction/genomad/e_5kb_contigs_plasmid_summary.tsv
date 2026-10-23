@@ -1,0 +1,3 @@
+seq_name	length	topology	n_genes	genetic_code	plasmid_score	fdr	n_hallmarks	marker_enrichment	conjugation_genes	amr_genes
+contig_2	8953	No terminal repeats	10	11	1.0000	NA	1	3.7813	NA	NA
+contig_3	182726	No terminal repeats	216	11	1.0000	NA	12	105.8707	t4cp2;MOBF	NA

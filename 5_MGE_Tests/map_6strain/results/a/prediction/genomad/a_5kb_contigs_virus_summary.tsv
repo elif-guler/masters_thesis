@@ -1,0 +1,6 @@
+seq_name	length	topology	coordinates	n_genes	genetic_code	virus_score	fdr	n_hallmarks	marker_enrichment	taxonomy
+contig_1|provirus_2887215_2909886	22672	Provirus	2887215-2909886	30	11	0.9995	NA	15	28.3353	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes;;
+contig_1|provirus_2988008_3037134	49127	Provirus	2988008-3037134	60	11	0.9994	NA	20	70.1404	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes;;
+contig_1|provirus_2372599_2385214	12616	Provirus	2372599-2385214	23	11	0.9991	NA	3	16.7159	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes;;
+contig_1|provirus_3231117_3249443	18327	Provirus	3231117-3249443	27	11	0.9975	NA	5	12.6099	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes;;
+contig_1|provirus_2181513_2205570	24058	Provirus	2181513-2205570	35	11	0.9939	NA	0	18.4937	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes;;

@@ -1,0 +1,21 @@
+{
+"apiVersion": "V2",
+"assemblies": [
+{
+  "files": [
+    {
+      "filePath": "assembly_data_report.jsonl",
+      "fileType": "DATA_REPORT",
+      "uncompressedLengthBytes": "3739"
+    }
+  ]
+},{
+  "accession": "GCF_000026325.1",
+  "files": [
+    {
+      "filePath": "GCF_000026325.1/genomic.gff",
+      "fileType": "GFF3",
+      "uncompressedLengthBytes": "3198600"
+    }
+  ]
+}]}

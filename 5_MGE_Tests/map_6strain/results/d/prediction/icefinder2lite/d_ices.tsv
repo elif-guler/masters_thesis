@@ -1,0 +1,4 @@
+contig	ice_id	ice_type	ice_location	ice_length	gc_content	direct_repeats	relaxase_type	mating_pair_formation_systems	close_to_RNA
+contig_1	contig_1_ICE5	T4SS-type ICE	2277415..2343163	65749	0.52	attL:2277415..2277431(CAGTCAGAGGAGCCAA),attR:2343147..2343163(CAGTCAGAGGAGCCAA)	MOBC	typeT	tRNA-Ser(2276274..2276363)[-]
+contig_2	contig_2_ICE4	T4SS-type ICE	56958..91970	35013	0.51	-	MOBF	typeF	-
+contig_3	contig_3_ICE6	T4SS-type ICE	111994..27288	-84705	0.00	-	MOBP1	typeT	-
