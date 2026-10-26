@@ -1,4 +1,4 @@
-#+TITLE: FUR/SeqWin MGE Analysis on E. coli strains
+#+TITLE: FUR/Seqwin MGE Analysis on E. coli strains
 
 * Overview
 
@@ -8,14 +8,14 @@ Analysis across six strains of E. coli:
 a  b1  b2  d  e  f
 #+end_example
 
-The analysis tests whether strain-specific FUR and SeqWin markers overlap
+The analysis tests whether strain-specific FUR and Seqwin markers overlap
 predicted mobile genetic elements (MGEs).
 
 * Workflow
 
 The analysis consists of three main steps:
 
-** 1. Compare FUR and SeqWin markers
+** 1. Compare FUR and Seqwin markers
 
 BLASTn is used to identify shared markers.
 
@@ -52,9 +52,9 @@ The permutation results are plotted as a 2 x 6 grid
 | Script | Purpose |
 |--------+---------|
 | ~run_pipeline.sh~ | Run MAP mobilome annotation |
-| ~venn_prep.sh~ | Compare FUR and SeqWin markers |
-| ~blast_markers.py~ | Compare FUR markers against SeqWin |
-| ~blast_markers_reverse.py~ | Compare SeqWin markers against FUR |
+| ~venn_prep.sh~ | Compare FUR and Seqwin markers |
+| ~blast_markers.py~ | Compare FUR markers against Seqwin |
+| ~blast_markers_reverse.py~ | Compare Seqwin markers against FUR |
 | ~extract_unique.py~ | Extract method-specific markers |
 | ~make_intervals.py~ | Map markers to reference coordinates |
 | ~annotate_mge.py~ | Count marker/MGE overlaps |
@@ -80,7 +80,7 @@ results/<strain>/gff/<strain>_mobilome.gff.gz
 
 ~venn_summary.csv~
 
-Contains the number of FUR, SeqWin, FUR-only, SeqWin-only, and shared
+Contains the number of FUR, Seqwin, FUR-only, Seqwin-only, and shared
 markers for each strain.
 
 ** MGE permutation results
@@ -118,7 +118,7 @@ Run the MAP annotation pipeline:
 bash run_pipeline.sh
 #+end_src
 
-Compare FUR and SeqWin markers:
+Compare FUR and Seqwin markers:
 
 #+begin_src bash
 bash venn_prep.sh

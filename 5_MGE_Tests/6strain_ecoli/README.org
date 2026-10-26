@@ -1,14 +1,14 @@
 #+TITLE: 6-Strain E. coli Marker & Sequence Analysis Pipeline
 
 * Overview
-This directory contains the automated pipeline and evaluation scripts comparing diagnostic marker identification tools (*Fur* and *SeqWin*) across 6 distinct /E. coli/ clades (*A*, *B1*, *B2*, *D*, *E*, and *F*). It also includes downstream analysis to assess whether clade-unique markers preferentially associate with Mobile Genetic Elements (MGEs).
+This directory contains the automated pipeline and evaluation scripts comparing diagnostic marker identification tools (*Fur* and *Seqwin*) across 6 distinct /E. coli/ clades (*A*, *B1*, *B2*, *D*, *E*, and *F*). It also includes downstream analysis to assess whether clade-unique markers preferentially associate with Mobile Genetic Elements (MGEs).
 
 * Directory Structure
 - *a, b1, b2, d, e, f/* :: Subdirectories containing clade-specific target/neighbor symlinks, local phylogeny (~eco33.nwk~), downloaded reference genomes, and output databases.
 - *pipeline.sh* :: Main pipeline automation script for dataset preparation, symlinking, and running *Fur* across all clades.
-- *run_fur_seqwin.sh* :: Execution wrapper for running SeqWin alongside Fur.
+- *run_fur_seqwin.sh* :: Execution wrapper for running Seqwin alongside Fur.
 - *run_cons.sh* & *analyze_cons.py* :: Scripts to calculate conservation, divergence, and off-target hit statistics.
-- *blast_markers.py*, *blast_markers_reverse.py* & *extract_unique.py* :: Scripts to perform reciprocal BLAST checks between Fur and SeqWin markers and extract tool-unique sequences.
+- *blast_markers.py*, *blast_markers_reverse.py* & *extract_unique.py* :: Scripts to perform reciprocal BLAST checks between Fur and Seqwin markers and extract tool-unique sequences.
 - *venn_prep.sh* :: Prepares unique marker FASTAs (~fur_unique.fasta~ and ~seqwin_unique.fasta~) for each clade and summarizes overlaps.
 - *gin_mge_test.sh* :: Maps unique markers to reference coordinates, counts observed MGE overlaps, and performs a 10,000-iteration Monte Carlo permutation test.
 - *calculate_marker_bp.sh* :: Summarizes marker counts and total sequence lengths (base pairs).
