@@ -1,0 +1,302 @@
+#+TITLE: Three-Taxon Conservation and Divergence Analysis
+
+* Overview
+
+This directory contains the analysis pipeline for identifying and evaluating
+taxon-specific genomic signatures in three taxa:
+
+- =clo=
+- =mtb=
+- =sen=
+
+The analysis compares target genomes against non-target (neighbor) genomes
+to identify genomic regions that distinguish the target taxon from related
+genomes.
+
+Two sample sizes are considered for each taxon:
+
+- 100 genomes
+- 1000 genomes
+
+The pipeline uses the genome accession annotations in =acc.txt= to select
+the appropriate genome sets, downloads the required genomes, organizes
+them into target and neighbor groups, and runs Fur and Seqwin.
+
+* Directory Structure
+
+#+begin_src text
+3taxa/
+├── README.org
+├── analyzing_target_taxa.org
+├── generating_seqwin_graph.org
+├── clo/
+│   ├── acc.txt
+│   ├── accessions.txt
+│   ├── accessions_100.txt
+│   ├── accessions_1000.txt
+│   ├── md5sum.txt
+│   └── tree.nwk
+├── mtb/
+│   ├── acc.txt
+│   ├── accessions.txt
+│   ├── accessions_100.txt
+│   ├── accessions_1000.txt
+│   ├── cons_div.csv
+│   ├── cons_div2.csv
+│   ├── md5sum.txt
+│   └── tree.nwk
+├── sen/
+│   ├── acc.txt
+│   ├── accessions.txt
+│   ├── accessions_100.txt
+│   ├── accessions_1000.txt
+│   ├── md5sum.txt
+│   └── tree.nwk
+├── compute_cons.py
+├── drive.sh
+├── pipeline.sh
+├── run_before.sh
+├── runall.sh
+└── runtaxon.sh
+#+end_src
+
+The =clo=, =mtb=, and =sen= directories contain the accession annotations
+and intermediate or previously generated results for each taxon.
+
+The main scripts are:
+
+- =runtaxon.sh=: processes one taxon using both sample sizes.
+- =runall.sh=: runs =runtaxon.sh= for all three taxa.
+- =pipeline.sh=: runs the original single-sample analysis pipeline from
+  the current working directory.
+- =run_before.sh=: prepares a genome sample and runs either Seqwin or
+  Fur for a specified dataset and sample size.
+- =compute_cons.py=: calculates conservation and divergence statistics
+  for genomic signatures.
+- =analyzing_target_taxa.org=: documents genome selection, phylogeny
+  construction, and Fur analysis.
+- =generating_seqwin_graph.org=: documents the Seqwin graph-generation
+  workflow.
+
+* Input Data
+
+** Accession Annotations
+
+Each taxon directory contains an =acc.txt= file describing the genomes
+considered in the analysis.
+
+The relevant columns are:
+
+| Column | Description                  |
+|--------+------------------------------|
+|      1 | GenBank accession             |
+|      2 | Is target                     |
+|      3 | Is sampled (100 genomes)      |
+|      4 | Is sampled (1000 genomes)     |
+
+The accession file may contain comment lines before the header. The current
+=runtaxon.sh= script assumes that the first two lines are metadata/header
+lines and starts reading genome records at line 3.
+
+A genome is included in a sample when the corresponding sampling column
+contains =TRUE=.
+
+The target annotation determines whether a selected genome is placed in
+the =targets/= or =neighbors/= directory.
+
+** Genome Files
+
+Genomes are downloaded from NCBI using the NCBI Datasets command-line tool.
+The pipeline uses dehydrated downloads and then rehydrates the downloaded
+packages to retrieve the genome sequence files.
+
+The genomic FASTA files are collected under =all/= and linked into the
+appropriate target and neighbor directories for each sample size.
+
+* Running the Pipeline
+
+** 1. Run All Three Taxa
+
+From this directory, execute:
+
+#+begin_src bash
+bash runall.sh
+#+end_src
+
+The script processes the following taxa in sequence:
+
+1. =clo=
+2. =mtb=
+3. =sen=
+
+For each taxon, =runtaxon.sh= prepares the accession lists for the 100-
+and 1000-genome samples, checks which genomes are missing, downloads
+missing genomes, and runs the downstream analyses.
+
+** 2. Run a Single Taxon
+
+To process only one taxon, run:
+
+#+begin_src bash
+bash runtaxon.sh clo
+#+end_src
+
+Replace =clo= with =mtb= or =sen= as needed.
+
+** 3. Select the Genome Sample
+
+The pipeline uses two sampling columns in =acc.txt=:
+
+- Column 3: 100-genome sample
+- Column 4: 1000-genome sample
+
+The =runtaxon.sh= script processes both sample sizes automatically.
+
+It creates separate output directories for the two analyses:
+
+#+begin_src text
+clo/
+├── all/
+└── results/
+    ├── 100/
+    │   ├── targets/
+    │   ├── neighbors/
+    │   ├── target.db
+    │   ├── markers.fasta
+    │   ├── seqwin-out/
+    │   └── *.res
+    └── 1000/
+        └── ...
+#+end_src
+
+The same structure is used for =mtb= and =sen=.
+
+** 4. Run the Original Single-Sample Pipeline
+
+The =pipeline.sh= script uses the sample size specified by =SAMPLE_COL=.
+
+For example, to select the 1000-genome sample, set:
+
+#+begin_src bash
+SAMPLE_COL=4
+#+end_src
+
+For the 100-genome sample, use:
+
+#+begin_src bash
+SAMPLE_COL=3
+#+end_src
+
+Then run the script from the directory containing the relevant =acc.txt=
+file:
+
+#+begin_src bash
+bash pipeline.sh
+#+end_src
+
+Unlike =runall.sh=, this script is intended for a single sample and assumes
+that its input files are available in the current working directory.
+
+* Analysis Workflow
+
+** 1. Select Accessions
+
+The pipeline extracts the GenBank accessions whose selected sampling
+column is =TRUE=.
+
+The resulting lists are:
+
+- =accessions_100.txt=: accessions selected for the 100-genome sample.
+- =accessions_1000.txt=: accessions selected for the 1000-genome sample.
+
+** 2. Download and Organize Genomes
+
+The pipeline checks whether the required genome FASTA files are already
+available under =all/=. Missing genomes are requested from NCBI.
+
+Downloaded genomes are rehydrated and linked into =all/= using their
+accessions as filenames.
+
+** 3. Separate Target and Neighbor Genomes
+
+For each sample size, genomes are assigned to one of two groups:
+
+- =targets/=: genomes annotated as targets in =acc.txt=.
+- =neighbors/=: selected genomes annotated as non-targets.
+
+These directories contain symbolic links to the corresponding genome
+files under =all/=.
+
+** 4. Identify Genomic Signatures with Fur
+
+The pipeline first builds a Fur database:
+
+#+begin_src bash
+makeFurDb 
+    -t results/100/targets 
+    -n results/100/neighbors 
+    -o 
+    -d results/100/target.db
+#+end_src
+
+It then runs Fur on the database:
+
+#+begin_src bash
+fur -d results/100/target.db > results/100/markers.fasta
+#+end_src
+
+The commands above illustrate the analysis for the 100-genome sample.
+The actual pipeline runs the corresponding commands for both sample sizes.
+
+** 5. Generate SeqWin Results
+
+Seqwin is run separately for each sample size using the corresponding
+target and neighbor genome directories.
+
+#+begin_src bash
+seqwin 
+    --tar-dir results/100/targets 
+    --neg-dir results/100/neighbors 
+    -o results/100/seqwin-out 
+    --overwrite
+#+end_src
+
+The results are written to the sample-specific =seqwin-out/= directory.
+
+** 6. Calculate Conservation and Divergence
+
+The =compute_cons.py= script evaluates genomic markers against target
+and non-target genomes using =blastn=.
+
+For each marker, it calculates:
+
+- =length=: marker length in bases.
+- =conservation=: normalized number of identical bases across target
+  genomes.
+- =divergence=: normalized number of mismatches and gaps across
+  non-target genomes.
+- =fraction_nontarget_hit=: fraction of non-target genomes with a detected
+  hit for the signature.
+- =score=: sum of the conservation and divergence values.
+
+The script uses these input and output filenames:
+
+#+begin_src python
+signatures_fasta = "markers.fasta"
+targets_dir = "targets"
+nontargets_dir = "neighbors"
+output_csv = "cons_div_results.csv"
+#+end_src
+
+Run the script from a directory containing =markers.fasta=, =targets/=
+and =neighbors/=:
+
+#+begin_src bash
+python3 compute_cons.py
+#+end_src
+
+The output is written to =cons_div_results.csv=.
+
+Note that =compute_cons.py= must be run separately for each sample if
+results are required for both the 100- and 1000-genome analyses. The script
+does not automatically iterate over the sample directories.

@@ -1,4 +1,4 @@
-we made some changes in the dev branch
+We made some changes in the developer branch of Mapro pipeline
 
 ** changes with the genomes.sh
 

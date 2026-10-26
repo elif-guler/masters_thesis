@@ -1,4 +1,4 @@
-*** Speed Comparison Between Fur and Seqwin
+*** Speed and Memory Comparison Between Fur and Seqwin
 
 I ran both tools with 1 thread option.
 
