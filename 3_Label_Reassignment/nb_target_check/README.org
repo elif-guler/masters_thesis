@@ -1,7 +1,7 @@
-#+TITLE: nb_target_check
+#+TITLE: Neighbor/Target Label Reassignment
 
 Checks whether the target/neighbor genome labels used in Seqwin's
-supplementary dataset actually match what the genomes look like
+supplementary dataset actually match where the genomes positioned
 phylogenetically, then runs =fur=/=seqwin= on the resulting target/neighbor
 sets and compares their marker output.
 

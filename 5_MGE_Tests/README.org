@@ -1,0 +1,90 @@
+#+TITLE: Mobile Genetic Element Enrichment Tests
+
+* Overview
+This directory collects the analysis testing whether diagnostic markers found by
+only one tool (*Fur* or *Seqwin*) are non-randomly associated with Mobile Genetic
+Elements (MGEs) in the reference genome.
+
+The general logic is the same in every sub-analysis:
+
+1. Compare the Fur and Seqwin marker sets (reciprocal BLASTn) and extract the
+   tool-unique markers.
+2. Map the unique markers to reference genome coordinates.
+3. Count how many markers overlap annotated MGEs (/observed/).
+4. Shuffle the marker intervals along the genome 10,000 times and count overlaps
+   again (/null distribution/).
+5. Compute an empirical p-value:
+
+#+begin_example
+p = (number of permutations >= observed + 1) / (number of permutations + 1)
+#+end_example
+
+The three sub-analyses differ in the dataset, in the reference genomes, and in how
+MGEs are defined (see the comparison table below).
+
+* Directory Structure
+| Directory         | Dataset                               | MGE definition                               | Markers tested |
+|-------------------+---------------------------------------+----------------------------------------------+----------------|
+| ~gin_mge/~        | /clo/, /mtb/, /sen/ (pool sizes 100, 1000) | GFF ~product=~ keywords (transposase, integrase, phage, ...) | FUR-unique |
+| ~6strain_ecoli/~  | 6 /E. coli/ clades (A, B1, B2, D, E, F) | GFF ~product=~ keywords (same approach as ~gin_mge~) | FUR-unique (clades with unique markers: B2, D, E, F) |
+| ~map_6strain/~    | Same 6 /E. coli/ clades               | MAP ~mobilome.gff.gz~ predictions            | FUR-unique and Seqwin-unique |
+
+** gin_mge/
+Original MGE permutation pipeline for the =clo=, =mtb= and =sen= datasets.
+Downloads reference genomes and GFFs from NCBI, maps markers with BLAST
+(~make_intervals.py~), counts MGE overlaps from the annotation text
+(~annotate_mge.py~), and runs the permutation test.
+- Entry point: ~run_gin_mge_all.sh~
+- Output: ~gin_mge_summary.csv~
+
+** 6strain_ecoli/
+Full Fur vs Seqwin pipeline across six /E. coli/ clades: dataset preparation,
+Fur and Seqwin runs, conservation/divergence statistics, reciprocal BLAST,
+unique-marker extraction, MGE permutation tests (~gin_mge_test.sh~), and plots.
+- Entry point: ~pipeline.sh~, then the steps listed in its README
+- Outputs: ~marker_bp_summary.csv~, ~venn_summary.csv~, ~gin_mge_summary.csv~,
+  ~ecoli_mge_null_grid.png~, ~cons_div_grid.png~, and others
+
+** map_6strain/
+Repeats the MGE test on the same six clades, but uses MAP-predicted mobilome
+annotations (~<strain>_mobilome.gff.gz~) instead of keyword matching on gene
+products, and tests both FUR-unique and Seqwin-unique markers.
+- Entry point: ~run_pipeline.sh~ (MAP), then ~venn_prep.sh~ and ~map_mge_test.sh~
+- Outputs: ~venn_summary.csv~, ~map_mge_summary.csv~, ~map_mge_null_grid.png~
+
+* Shared Components
+These scripts appear (with minor adaptations) in more than one sub-directory:
+| Script                     | Purpose                                         |
+|----------------------------+-------------------------------------------------|
+| ~blast_markers.py~         | Fur markers vs Seqwin markers (BLASTn)          |
+| ~blast_markers_reverse.py~ | Seqwin markers vs Fur markers (BLASTn)          |
+| ~extract_unique.py~        | Extract markers not found in the other tool     |
+| ~venn_prep.sh~             | Build unique-marker FASTAs and overlap summary  |
+| ~make_intervals.py~        | Map markers to reference coordinates            |
+| ~annotate_mge.py~          | Count marker/MGE overlaps                       |
+
+Shared criteria for a marker to count as "shared" between the tools (~map_6strain~):
+>= 95% identity and >= 90% query coverage.
+
+* Suggested Order of Execution
+1. ~gin_mge/~ : =bash run_gin_mge_all.sh= (non-/E. coli/ datasets; method reference).
+2. ~6strain_ecoli/~ : run the pipeline, then the MGE tests for clades B2, D, E, F.
+3. ~map_6strain/~ : run MAP annotation, compare markers, run permutation tests,
+   plot the grid.
+
+* Summary of Results
+** map_6strain (MAP mobilome)
+Across the six clades, no FUR or Seqwin comparison reached significance in the
+permutation test (smallest p = 0.20, FUR in clade D). FUR in clades A and B1
+had no unique markers, so no test was possible there. Seqwin results had p
+values between 0.78 and 1, i.e. observed overlaps were never above what is
+expected from random placement.
+
+** 6strain_ecoli and gin_mge
+See ~gin_mge_summary.csv~ in the respective directories.
+
+* Notes
+- Because the MGE definition differs (annotation keywords vs MAP predictions),
+  results from ~6strain_ecoli/~ and ~map_6strain/~ should be compared with this
+  in mind.
+- Permutations are run with 10,000 iterations in all sub-analyses.
