@@ -18,21 +18,7 @@ and possible associations with mobile genetic elements.
 - Examine marker conservation and divergence across six *Escherichia coli* phylogroups.
 - Test whether discovered markers are enriched for mobile genetic element (MGE)-associated annotations.
 
-* Repository Structure
-
-#+BEGIN_SRC text
-.
-├── 1_Mapro/
-├── 2_Fur_Seqwin/
-├── 3_Label_Reassignment/
-├── 4_Conservation_Divergence_Analysis/
-├── 5_MGE_Tests/
-└── README.org
-#+END_SRC
-
-The directories group the project workflows and analyses. Individual scripts, inputs, and outputs are located in their respective directories.
-
-* Methods and Analyses
+* Methods and Analysis
 
 ** Fur and Seqwin comparison
 
@@ -75,5 +61,3 @@ The project uses or discusses the following tools and resources:
 - biobox https://github.com/EvolBioInf/biobox
 - primer3 https://github.com/primer3-org
 - Mobilome Annotation Pipeline (MAP) https://github.com/EBI-Metagenomics/mobilome-annotation-pipeline
-
-Exact software versions, parameters, and execution steps should be taken from the relevant scripts, configuration files, and thesis documentation.
