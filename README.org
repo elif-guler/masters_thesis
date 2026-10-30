@@ -5,7 +5,7 @@
 
 * Overview
 
-This repository contains the analyses and workflows developed for the master's thesis *Comparison of Tools for Discovering Genetic Markers in Bacterial Genomes*.
+This repository contains the analyses and workflows developed for the master's thesis *Comparison of Two Tools for Discovering Genetic Markers in Bacterial Genomes*.
 
 The project compares computational approaches for discovering genetic markers in bacterial genomes, with attention to marker recovery, computational performance, taxonomic assignment, specificity and sensitivity,
 and possible associations with mobile genetic elements.
