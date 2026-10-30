@@ -1,4 +1,4 @@
-#+TITLE: Comparison of Tools for Discovering Genetic Markers in Bacterial Genomes
+#+TITLE: Comparison of Two Tools for Discovering Genetic Markers in Bacterial Genomes
 #+AUTHOR: Elif Güler
 #+DATE: 2026
 #+OPTIONS: toc:2
